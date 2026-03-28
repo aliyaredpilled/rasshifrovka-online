@@ -793,11 +793,26 @@
     }
 
     // Copy hash to clipboard
+    function copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+            return navigator.clipboard.writeText(text);
+        }
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        return Promise.resolve();
+    }
+
     function copyHash() {
         var result = document.getElementById('hashResult').textContent;
         if (result && result !== '—') {
-            navigator.clipboard.writeText(result).then(function() {
-                var btn = event.target;
+            var btn = document.querySelector('.button-row .btn');
+            copyToClipboard(result).then(function() {
                 var original = btn.textContent;
                 btn.textContent = 'Скопировано!';
                 setTimeout(function() { btn.textContent = original; }, 1500);

@@ -851,11 +851,26 @@
 
             btnCopy.textContent = 'Скопировать';
             btnCopy.onclick = () => {
-                navigator.clipboard.writeText(data).then(() => {
+                copyToClipboard(data).then(() => {
                     btnCopy.textContent = 'Готово!';
                     setTimeout(() => btnCopy.textContent = 'Скопировать', 2000);
                 });
             };
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            }
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            return Promise.resolve();
         }
 
         function showError(msg) {

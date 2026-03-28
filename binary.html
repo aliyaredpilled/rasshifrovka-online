@@ -618,10 +618,25 @@
             outputArea.classList.add('empty');
         });
 
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            }
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            return Promise.resolve();
+        }
+
         btnCopy.addEventListener('click', () => {
             const text = outputArea.textContent;
             if (text && !outputArea.classList.contains('empty')) {
-                navigator.clipboard.writeText(text).then(() => {
+                copyToClipboard(text).then(() => {
                     btnCopy.textContent = 'Готово!';
                     setTimeout(() => btnCopy.textContent = 'Скопировать', 2000);
                 });
