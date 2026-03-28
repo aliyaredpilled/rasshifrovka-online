@@ -365,6 +365,8 @@
             width: 100%;
             display: block;
             background: #000;
+            object-fit: cover;
+            max-height: 70vh;
         }
 
         .camera-overlay {
@@ -921,10 +923,25 @@
 
             try {
                 cameraStream = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: 'environment' }
+                    video: {
+                        facingMode: 'environment',
+                        width: { ideal: 1920 },
+                        height: { ideal: 1080 },
+                        focusMode: { ideal: 'continuous' }
+                    }
                 });
                 video.srcObject = cameraStream;
+                video.setAttribute('playsinline', '');
                 cameraContainer.classList.add('visible');
+
+                // Try to enable continuous autofocus via track settings
+                try {
+                    const track = cameraStream.getVideoTracks()[0];
+                    const capabilities = track.getCapabilities ? track.getCapabilities() : {};
+                    if (capabilities.focusMode && capabilities.focusMode.includes('continuous')) {
+                        await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] });
+                    }
+                } catch (e) { /* autofocus not supported — ok */ }
 
                 scanInterval = setInterval(() => {
                     if (video.readyState === video.HAVE_ENOUGH_DATA) {
@@ -934,13 +951,15 @@
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(video, 0, 0);
                         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                        const code = jsQR(imageData.data, canvas.width, canvas.height);
+                        const code = jsQR(imageData.data, canvas.width, canvas.height, {
+                            inversionAttempts: 'attemptBoth'
+                        });
                         if (code) {
                             showResult(code.data);
                             stopCamera();
                         }
                     }
-                }, 300);
+                }, 200);
             } catch (err) {
                 if (err.name === 'NotAllowedError') {
                     showError('Вы отклонили запрос на камеру. Разрешите доступ в настройках браузера (значок замка слева от адреса) и нажмите «Камера» ещё раз.');
