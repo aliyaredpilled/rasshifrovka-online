@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расшифровать QR-код онлайн — Бесплатный сканер QR-кодов</title>
+    <meta name="description" content="Бесплатный онлайн сканер QR-кодов. Загрузите скриншот, вставьте из буфера или используйте камеру. Мгновенная расшифровка без регистрации и установки приложений.">
+    <meta name="keywords" content="qr код, расшифровать qr код, сканер qr кодов онлайн, считать qr код, qr decoder, расшифровка qr кода по фото, qr код сканер">
+    <link rel="canonical" href="https://rasshifrovka.online/">
+    <meta property="og:title" content="Расшифровать QR-код онлайн — Бесплатный сканер">
+    <meta property="og:description" content="Загрузите скриншот или наведите камеру — мгновенная расшифровка QR-кода. Бесплатно, без регистрации.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Расшифровать QR-код онлайн — Бесплатный сканер">
+    <meta name="twitter:description" content="Загрузите скриншот или наведите камеру — мгновенная расшифровка QR-кода.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "QR Сканер",
+        "description": "Бесплатный онлайн сканер для расшифровки QR-кодов по фото, скриншоту или с камеры",
+        "url": "https://rasshifrovka.online/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #EA580B;
+            --secondary: #F59E0B;
+            --background: #FFEDD5;
+            --surface: #FDBA74;
+            --text: #EA580C;
+            --border-width: 4px;
+            --font-display: 'Russo One', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-mono);
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        nav {
+            background: #FFF7ED;
+            border-bottom: var(--border-width) solid var(--primary);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: #9A3412;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--secondary);
+        }
+
+        nav a.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .ad-banner {
+            background: #FFF7ED;
+            border-bottom: var(--border-width) solid var(--primary);
+            text-align: center;
+            padding: 12px;
+            font-size: 13px;
+            color: #9A3412;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+        }
+
+        .ad-banner-bottom {
+            border-bottom: none;
+            border-top: var(--border-width) solid var(--primary);
+        }
+
+        .page-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 20px 32px;
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 var(--secondary);
+            text-align: center;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: #9A3412;
+            margin-bottom: 32px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .scan-area {
+            width: 100%;
+            border: var(--border-width) dashed var(--primary);
+            border-radius: 4px;
+            padding: 48px 24px;
+            text-align: center;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            background: #FFF7ED;
+        }
+
+        .scan-area:hover, .scan-area.dragover {
+            border-style: solid;
+            background: #FFFFFF;
+            transform: scale(1.02);
+            box-shadow: 6px 6px 0 var(--primary);
+        }
+
+        .scan-area.has-preview {
+            padding: 0;
+            border-style: solid;
+            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+        }
+
+        .scan-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+
+        .scan-area p {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .scan-area .hint {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #C2410C;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .preview-img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 0;
+            display: none;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            width: 100%;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 16px 24px;
+            border-radius: 4px;
+            border: var(--border-width) solid var(--primary);
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #FFF7ED;
+        }
+
+        .btn-primary:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 6px 6px 0 #9A3412;
+        }
+
+        .btn-primary:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: #7C2D12;
+        }
+
+        .btn-secondary:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 6px 6px 0 #B45309;
+        }
+
+        .btn-secondary:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+        }
+
+        .result-box {
+            width: 100%;
+            margin-top: 32px;
+            background: #FFF7ED;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 4px;
+            padding: 24px;
+            display: none;
+            animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 6px 6px 0 var(--primary);
+        }
+
+        .result-box.visible { display: block; }
+
+        .result-label {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .result-content {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            word-break: break-all;
+            line-height: 1.8;
+            color: #7C2D12;
+            background: var(--background);
+            padding: 16px;
+            border: var(--border-width) solid var(--surface);
+            border-radius: 4px;
+        }
+
+        .result-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .result-content a:hover {
+            border-bottom-color: var(--primary);
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: var(--border-width) solid var(--primary);
+            background: var(--secondary);
+            color: #7C2D12;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-small:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 #9A3412;
+        }
+
+        .btn-small:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+        }
+
+        .error-box {
+            width: 100%;
+            margin-top: 32px;
+            background: #FEF2F2;
+            border: var(--border-width) solid #DC2626;
+            border-radius: 4px;
+            padding: 24px;
+            display: none;
+            color: #991B1B;
+            font-size: 14px;
+            font-family: var(--font-mono);
+            animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 6px 6px 0 #DC2626;
+            text-transform: uppercase;
+        }
+
+        .error-box.visible { display: block; }
+
+        .camera-container {
+            width: 100%;
+            display: none;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 24px;
+            border: var(--border-width) solid var(--primary);
+            box-shadow: 6px 6px 0 var(--primary);
+        }
+
+        .camera-container.visible { display: block; }
+
+        .camera-container video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+
+        .camera-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: var(--border-width) solid var(--secondary);
+            border-radius: 4px;
+            pointer-events: none;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .camera-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            background: var(--primary);
+            border: var(--border-width) solid #7C2D12;
+            color: #FFF7ED;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .camera-close:hover {
+            transform: scale(1.1);
+        }
+
+        /* SEO content section */
+        .seo-content {
+            width: 100%;
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: var(--border-width) solid var(--surface);
+        }
+
+        .seo-content h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 0 var(--secondary);
+        }
+
+        .seo-content p {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.8;
+            color: #9A3412;
+            margin-bottom: 16px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .feature-card {
+            background: #FFF7ED;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 4px;
+            padding: 20px;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .feature-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--primary);
+        }
+
+        .feature-card .feature-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        .how-to-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .how-to-list li {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: #9A3412;
+            padding: 12px 16px;
+            border-left: var(--border-width) solid var(--primary);
+            margin-bottom: 8px;
+            background: #FFF7ED;
+            line-height: 1.6;
+        }
+
+        .how-to-list .step-num {
+            font-family: var(--font-display);
+            color: var(--primary);
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .faq-section { margin-top: 32px; }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: var(--border-width) solid var(--surface);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            font-family: var(--font-display);
+            font-size: 16px;
+            color: var(--primary);
+            padding: 16px;
+            cursor: pointer;
+            background: #FFF7ED;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-item summary::before {
+            content: '+';
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] summary::before { content: '-'; }
+
+        .faq-item summary:hover { background: #FFFFFF; }
+
+        .faq-item .faq-answer {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.8;
+            color: #9A3412;
+            padding: 0 16px 16px;
+            background: #FFF7ED;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #C2410C;
+            font-size: 12px;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        /* Decorative geometric shapes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            opacity: 0.15;
+            transform: rotate(45deg);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            border: var(--border-width) solid var(--primary);
+            opacity: 0.1;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 32px; }
+            .page-wrapper { padding: 32px 16px 24px; }
+            .scan-area { padding: 36px 16px; }
+            .buttons { flex-direction: column; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="active">QR Сканер</a>
+        <a href="/binary.html">Двоичный код</a>
+    </nav>
+
+    <!-- Место для рекламного баннера (верх) -->
+    <div class="ad-banner" id="ad-top">
+        <!-- Сюда вставить рекламный блок, например Google AdSense -->
+        <span>[ РЕКЛАМНОЕ МЕСТО ]</span>
+    </div>
+
+    <main class="page-wrapper">
+        <h1>QR Сканер</h1>
+        <p class="subtitle">Расшифруй QR-код за секунду!</p>
+
+        <div class="scan-area" id="dropZone">
+            <svg class="scan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/>
+                <rect x="7" y="7" width="10" height="10" rx="1"/>
+            </svg>
+            <p>Бросай картинку сюда!</p>
+            <p class="hint">или нажми чтобы выбрать файл &middot; Ctrl+V вставить из буфера</p>
+            <img class="preview-img" id="preview" alt="Превью загруженного QR-кода">
+        </div>
+
+        <input type="file" id="fileInput" accept="image/*" hidden>
+
+        <div class="buttons">
+            <button class="btn btn-primary" id="btnUpload">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                Скриншот
+            </button>
+            <button class="btn btn-secondary" id="btnCamera">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                Камера
+            </button>
+        </div>
+
+        <div class="camera-container" id="cameraContainer">
+            <video id="video" autoplay playsinline></video>
+            <div class="camera-overlay"></div>
+            <button class="camera-close" id="cameraClose">&times;</button>
+        </div>
+
+        <div class="result-box" id="resultBox">
+            <div class="result-label">Результат</div>
+            <div class="result-content" id="resultContent"></div>
+            <div class="result-actions">
+                <button class="btn-small" id="btnCopy">Скопировать</button>
+                <button class="btn-small" id="btnOpen" style="display:none">Открыть</button>
+            </div>
+        </div>
+
+        <div class="error-box" id="errorBox"></div>
+
+        <!-- SEO content -->
+        <section class="seo-content">
+            <h2>Как расшифровать QR-код онлайн</h2>
+            <p>Наш сканер QR-кодов работает прямо в браузере — не нужно устанавливать приложения или проходить регистрацию. Загрузите скриншот, фотографию или вставьте изображение из буфера обмена, и вы мгновенно получите содержимое QR-кода: ссылку, текст, контактные данные или любую другую информацию.</p>
+
+            <ol class="how-to-list">
+                <li><span class="step-num">1.</span> Сделайте скриншот QR-кода или сохраните фото</li>
+                <li><span class="step-num">2.</span> Загрузите изображение на сайт — перетащите, выберите файл или нажмите Ctrl+V</li>
+                <li><span class="step-num">3.</span> Результат появится мгновенно — скопируйте или перейдите по ссылке</li>
+            </ol>
+
+            <h2>Возможности</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#9889;</div>
+                    <h3>Мгновенно</h3>
+                    <p>Расшифровка за доли секунды. Всё работает на вашем устройстве, без отправки данных на сервер.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128247;</div>
+                    <h3>Камера</h3>
+                    <p>Наведите камеру телефона на QR-код — сканер распознает его автоматически в реальном времени.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128203;</div>
+                    <h3>Из буфера</h3>
+                    <p>Сделайте скриншот и нажмите Ctrl+V — изображение вставится и расшифруется автоматически.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128274;</div>
+                    <h3>Безопасно</h3>
+                    <p>Изображения не покидают ваш браузер. Никаких загрузок на сервер, полная приватность.</p>
+                </div>
+            </div>
+
+            <h2>Какие QR-коды можно расшифровать</h2>
+            <p>Сканер распознаёт все стандартные QR-коды (ISO/IEC 18004): ссылки на сайты, текстовые сообщения, контактные данные (vCard), Wi-Fi пароли, геолокации и любые другие данные, закодированные в формате QR. Поддерживаются QR-коды всех версий и уровней коррекции ошибок.</p>
+
+            <div class="faq-section">
+                <h2>Частые вопросы</h2>
+
+                <details class="faq-item">
+                    <summary>Как считать QR-код с картинки на компьютере?</summary>
+                    <div class="faq-answer">Сделайте скриншот QR-кода (Win+Shift+S на Windows или Cmd+Shift+4 на Mac), затем нажмите Ctrl+V на нашем сайте. Изображение автоматически вставится и расшифруется. Также можно перетащить файл с изображением прямо на страницу.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Можно ли сканировать QR-код с телефона?</summary>
+                    <div class="faq-answer">Да! Нажмите кнопку «Камера» и разрешите доступ к камере. Наведите камеру на QR-код — он будет распознан автоматически. Также можно загрузить скриншот или фото из галереи.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Это бесплатно?</summary>
+                    <div class="faq-answer">Полностью бесплатно, без ограничений и без регистрации. Сканируйте сколько угодно QR-кодов.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Мои данные в безопасности?</summary>
+                    <div class="faq-answer">Да. Всё распознавание происходит прямо в вашем браузере с помощью JavaScript. Изображения никуда не отправляются — они не покидают ваше устройство. Мы не храним и не обрабатываем ваши данные на сервере.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Почему QR-код не распознаётся?</summary>
+                    <div class="faq-answer">Убедитесь, что QR-код на изображении чёткий и не обрезан. Все три квадратных маркера в углах должны быть видны. Попробуйте загрузить изображение в более высоком разрешении или сделать скриншот покрупнее.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Какие форматы изображений поддерживаются?</summary>
+                    <div class="faq-answer">PNG, JPG, JPEG, GIF, BMP, WebP — любой формат изображений, который поддерживает ваш браузер.</div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <!-- Место для рекламного баннера (низ) -->
+    <div class="ad-banner ad-banner-bottom" id="ad-bottom">
+        <span>[ РЕКЛАМНОЕ МЕСТО ]</span>
+    </div>
+
+    <footer>
+        QR Сканер &copy; 2026 &middot; <a href="/privacy.html">Политика конфиденциальности</a>
+    </footer>
+
+    <!-- jsQR library for QR code decoding -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+        const resultBox = document.getElementById('resultBox');
+        const resultContent = document.getElementById('resultContent');
+        const errorBox = document.getElementById('errorBox');
+        const btnCopy = document.getElementById('btnCopy');
+        const btnOpen = document.getElementById('btnOpen');
+        const btnUpload = document.getElementById('btnUpload');
+        const btnCamera = document.getElementById('btnCamera');
+        const cameraContainer = document.getElementById('cameraContainer');
+        const video = document.getElementById('video');
+        const cameraClose = document.getElementById('cameraClose');
+
+        let cameraStream = null;
+        let scanInterval = null;
+
+        // File upload
+        btnUpload.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                processFile(file);
+            }
+        });
+
+        // Paste from clipboard
+        document.addEventListener('paste', (e) => {
+            const items = e.clipboardData.items;
+            for (const item of items) {
+                if (item.type.startsWith('image/')) {
+                    processFile(item.getAsFile());
+                    break;
+                }
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files[0]) processFile(e.target.files[0]);
+        });
+
+        function processFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                dropZone.classList.add('has-preview');
+                dropZone.querySelector('svg').style.display = 'none';
+                dropZone.querySelector('p').style.display = 'none';
+                dropZone.querySelector('.hint').style.display = 'none';
+
+                const img = new Image();
+                img.onload = () => decodeQR(img);
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function decodeQR(img) {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth || img.width;
+            canvas.height = img.naturalHeight || img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const code = jsQR(imageData.data, canvas.width, canvas.height);
+
+            if (code) {
+                showResult(code.data);
+            } else {
+                showError('QR-код не найден! Попробуй другое изображение.');
+            }
+        }
+
+        function showResult(data) {
+            errorBox.classList.remove('visible');
+            resultBox.classList.add('visible');
+
+            const isURL = /^https?:\/\//i.test(data);
+            if (isURL) {
+                resultContent.innerHTML = `<a href="${escapeHtml(data)}" target="_blank" rel="noopener">${escapeHtml(data)}</a>`;
+                btnOpen.style.display = 'inline-block';
+                btnOpen.onclick = () => window.open(data, '_blank', 'noopener');
+            } else {
+                resultContent.textContent = data;
+                btnOpen.style.display = 'none';
+            }
+
+            btnCopy.textContent = 'Скопировать';
+            btnCopy.onclick = () => {
+                navigator.clipboard.writeText(data).then(() => {
+                    btnCopy.textContent = 'Готово!';
+                    setTimeout(() => btnCopy.textContent = 'Скопировать', 2000);
+                });
+            };
+        }
+
+        function showError(msg) {
+            resultBox.classList.remove('visible');
+            errorBox.textContent = msg;
+            errorBox.classList.add('visible');
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // Camera
+        btnCamera.addEventListener('click', startCamera);
+        cameraClose.addEventListener('click', stopCamera);
+
+        async function startCamera() {
+            try {
+                cameraStream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'environment' }
+                });
+                video.srcObject = cameraStream;
+                cameraContainer.classList.add('visible');
+
+                scanInterval = setInterval(() => {
+                    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(video, 0, 0);
+                        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        const code = jsQR(imageData.data, canvas.width, canvas.height);
+                        if (code) {
+                            showResult(code.data);
+                            stopCamera();
+                        }
+                    }
+                }, 300);
+            } catch (err) {
+                showError('Нет доступа к камере! Проверь разрешения.');
+            }
+        }
+
+        function stopCamera() {
+            if (scanInterval) { clearInterval(scanInterval); scanInterval = null; }
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(t => t.stop());
+                cameraStream = null;
+            }
+            cameraContainer.classList.remove('visible');
+        }
+    </script>
+</body>
+</html>

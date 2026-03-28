@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rasshifrovka.online/sitemap.xml

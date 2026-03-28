@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Двоичный код переводчик онлайн — Расшифровать бинарный код в текст</title>
+    <meta name="description" content="Бесплатный переводчик двоичного кода. Расшифруйте бинарный код из 0 и 1 в текст или переведите текст в двоичный код. Мгновенно, без регистрации.">
+    <meta name="keywords" content="двоичный код переводчик, расшифровать двоичный код, бинарный код в текст, дешифратор двоичного кода, перевод из двоичного кода, текст в двоичный код, бинарный переводчик">
+    <link rel="canonical" href="https://rasshifrovka.online/binary.html">
+    <meta property="og:title" content="Двоичный код переводчик — Расшифровать бинарный код онлайн">
+    <meta property="og:description" content="Переведите двоичный код из нулей и единиц в текст и обратно. Бесплатно, мгновенно.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Двоичный код переводчик",
+        "description": "Бесплатный онлайн переводчик двоичного (бинарного) кода в текст и обратно",
+        "url": "https://rasshifrovka.online/binary.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #EA580B;
+            --secondary: #F59E0B;
+            --background: #FFEDD5;
+            --surface: #FDBA74;
+            --text: #EA580C;
+            --border-width: 4px;
+            --font-display: 'Russo One', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-mono);
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        nav {
+            background: #FFF7ED;
+            border-bottom: var(--border-width) solid var(--primary);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: #9A3412;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--secondary);
+        }
+
+        nav a.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .ad-banner {
+            background: #FFF7ED;
+            border-bottom: var(--border-width) solid var(--primary);
+            text-align: center;
+            padding: 12px;
+            font-size: 13px;
+            color: #9A3412;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+        }
+
+        .ad-banner-bottom {
+            border-bottom: none;
+            border-top: var(--border-width) solid var(--primary);
+        }
+
+        .page-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 20px 32px;
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 var(--secondary);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-family: var(--font-mono);
+            color: #9A3412;
+            margin-bottom: 32px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* Mode toggle */
+        .mode-toggle {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            width: 100%;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 14px 16px;
+            font-family: var(--font-display);
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #FFF7ED;
+            color: #9A3412;
+        }
+
+        .mode-btn.active {
+            background: var(--primary);
+            color: #FFF7ED;
+        }
+
+        .mode-btn:not(.active):hover {
+            background: var(--surface);
+        }
+
+        .mode-btn + .mode-btn {
+            border-left: var(--border-width) solid var(--primary);
+        }
+
+        /* Text areas */
+        .converter-box {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .field-label {
+            font-family: var(--font-display);
+            font-size: 16px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.8;
+            background: #FFF7ED;
+            color: #7C2D12;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 4px;
+            resize: vertical;
+            transition: all 0.15s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            box-shadow: 6px 6px 0 var(--primary);
+            transform: translate(-3px, -3px);
+        }
+
+        textarea::placeholder {
+            color: #C2410C;
+            opacity: 0.5;
+        }
+
+        /* Arrow between fields */
+        .arrow-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 0;
+        }
+
+        .arrow-divider svg {
+            color: var(--primary);
+            opacity: 0.6;
+        }
+
+        /* Output area */
+        .output-area {
+            width: 100%;
+            min-height: 140px;
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.8;
+            background: var(--background);
+            color: #7C2D12;
+            border: var(--border-width) solid var(--surface);
+            border-radius: 4px;
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+
+        .output-area.empty {
+            color: #C2410C;
+            opacity: 0.5;
+        }
+
+        .output-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: var(--border-width) solid var(--primary);
+            background: var(--secondary);
+            color: #7C2D12;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-small:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 #9A3412;
+        }
+
+        .btn-small:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+        }
+
+        /* SEO content */
+        .seo-content {
+            width: 100%;
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: var(--border-width) solid var(--surface);
+        }
+
+        .seo-content h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 0 var(--secondary);
+        }
+
+        .seo-content p {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.8;
+            color: #9A3412;
+            margin-bottom: 16px;
+        }
+
+        .example-box {
+            background: #FFF7ED;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 4px;
+            padding: 20px;
+            margin: 16px 0;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.8;
+            color: #7C2D12;
+        }
+
+        .example-box .label {
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .faq-section { margin-top: 32px; }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: var(--border-width) solid var(--surface);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            font-family: var(--font-display);
+            font-size: 16px;
+            color: var(--primary);
+            padding: 16px;
+            cursor: pointer;
+            background: #FFF7ED;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-item summary::before {
+            content: '+';
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] summary::before { content: '-'; }
+        .faq-item summary:hover { background: #FFFFFF; }
+
+        .faq-item .faq-answer {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.8;
+            color: #9A3412;
+            padding: 0 16px 16px;
+            background: #FFF7ED;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #C2410C;
+            font-size: 12px;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            opacity: 0.15;
+            transform: rotate(45deg);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            border: var(--border-width) solid var(--primary);
+            opacity: 0.1;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 24px; }
+            .page-wrapper { padding: 32px 16px 24px; }
+            nav a { padding: 12px 12px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">QR Сканер</a>
+        <a href="/binary.html" class="active">Двоичный код</a>
+    </nav>
+
+    <div class="ad-banner" id="ad-top">
+        <span>[ РЕКЛАМНОЕ МЕСТО ]</span>
+    </div>
+
+    <main class="page-wrapper">
+        <h1>Двоичный код переводчик</h1>
+        <p class="subtitle">Расшифруй бинарный код мгновенно!</p>
+
+        <div class="mode-toggle">
+            <button class="mode-btn active" id="modeBinToText">Двоичный → Текст</button>
+            <button class="mode-btn" id="modeTextToBin">Текст → Двоичный</button>
+        </div>
+
+        <div class="converter-box">
+            <div>
+                <div class="field-label" id="inputLabel">Двоичный код</div>
+                <textarea id="inputArea" placeholder="01001000 01100101 01101100 01101100 01101111" spellcheck="false"></textarea>
+            </div>
+
+            <div class="arrow-divider">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+
+            <div>
+                <div class="field-label" id="outputLabel">Текст</div>
+                <div class="output-area empty" id="outputArea">Результат появится здесь...</div>
+            </div>
+
+            <div class="output-actions">
+                <button class="btn-small" id="btnCopy">Скопировать</button>
+                <button class="btn-small" id="btnClear">Очистить</button>
+                <button class="btn-small" id="btnSwap">Поменять местами</button>
+            </div>
+        </div>
+
+        <!-- SEO content -->
+        <section class="seo-content">
+            <h2>Как расшифровать двоичный код</h2>
+            <p>Двоичный (бинарный) код — это способ представления информации с помощью двух символов: 0 и 1. Компьютеры хранят все данные в двоичном формате. Каждая группа из 8 бит (нулей и единиц) называется байтом и соответствует одному символу.</p>
+
+            <div class="example-box">
+                <div class="label">Пример</div>
+                01001000 01100101 01101100 01101100 01101111 = <strong>Hello</strong><br>
+                01010000 01110010 01101001 01110110 01100101 01110100 = <strong>Privet</strong><br>
+                11010000 10011111 11010001 10000000 11010000 10111000 11010000 10110010 11010000 10110101 11010001 10000010 = <strong>Привет</strong>
+            </div>
+
+            <p>Наш переводчик работает с кодировкой UTF-8, что позволяет расшифровывать не только латинские буквы, но и кириллицу, эмодзи и символы любых языков мира.</p>
+
+            <h2>Как пользоваться</h2>
+            <p>Для расшифровки двоичного кода в текст: вставьте последовательность из нулей и единиц в верхнее поле. Байты можно разделять пробелами или писать слитно — переводчик распознает оба варианта. Результат появится мгновенно.</p>
+            <p>Для перевода текста в двоичный код: нажмите кнопку «Текст → Двоичный», введите любой текст, и вы получите его двоичное представление.</p>
+
+            <div class="faq-section">
+                <h2>Частые вопросы</h2>
+
+                <details class="faq-item">
+                    <summary>Что такое двоичный код?</summary>
+                    <div class="faq-answer">Двоичный код — это система записи чисел и данных, использующая только два символа: 0 и 1. Это базовый язык компьютеров. Каждый бит может быть 0 или 1, а группа из 8 бит (байт) может представлять число от 0 до 255, что позволяет кодировать буквы, цифры и символы.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Как перевести двоичный код в текст вручную?</summary>
+                    <div class="faq-answer">Разделите код на группы по 8 символов (байт). Переведите каждый байт в десятичное число: умножьте каждый бит на соответствующую степень двойки (128, 64, 32, 16, 8, 4, 2, 1) и сложите результаты. Найдите символ с этим номером в таблице ASCII. Например: 01001000 = 0+64+0+0+8+0+0+0 = 72 = 'H'.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Поддерживается ли русский язык?</summary>
+                    <div class="faq-answer">Да! Переводчик работает с кодировкой UTF-8, поэтому поддерживается кириллица и любые другие символы. Обратите внимание, что русские буквы занимают 2 байта в UTF-8, поэтому для одной буквы нужно 16 бит.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Что означает «расшифровать код из цифр 0 и 1»?</summary>
+                    <div class="faq-answer">Это то же самое, что перевести двоичный код в текст. Последовательность нулей и единиц (например, 01001000 01101001) — это текст, записанный в двоичной системе. Наш переводчик мгновенно превращает такую последовательность в читаемый текст.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Можно ли расшифровать код без пробелов?</summary>
+                    <div class="faq-answer">Да, переводчик автоматически разбивает сплошную строку нулей и единиц на байты по 8 символов. Пробелы между байтами необязательны, но с ними код читается удобнее.</div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <div class="ad-banner ad-banner-bottom" id="ad-bottom">
+        <span>[ РЕКЛАМНОЕ МЕСТО ]</span>
+    </div>
+
+    <footer>
+        QR Сканер &copy; 2026 &middot; <a href="/privacy.html">Политика конфиденциальности</a>
+    </footer>
+
+    <script>
+        const inputArea = document.getElementById('inputArea');
+        const outputArea = document.getElementById('outputArea');
+        const inputLabel = document.getElementById('inputLabel');
+        const outputLabel = document.getElementById('outputLabel');
+        const modeBinToText = document.getElementById('modeBinToText');
+        const modeTextToBin = document.getElementById('modeTextToBin');
+        const btnCopy = document.getElementById('btnCopy');
+        const btnClear = document.getElementById('btnClear');
+        const btnSwap = document.getElementById('btnSwap');
+
+        let mode = 'bin2text'; // or 'text2bin'
+
+        function binaryToText(bin) {
+            const cleaned = bin.replace(/[^01]/g, '');
+            if (cleaned.length === 0) return '';
+            if (cleaned.length % 8 !== 0) return '[Ошибка: количество бит не кратно 8]';
+
+            const bytes = [];
+            for (let i = 0; i < cleaned.length; i += 8) {
+                bytes.push(parseInt(cleaned.substring(i, i + 8), 2));
+            }
+            return new TextDecoder('utf-8').decode(new Uint8Array(bytes));
+        }
+
+        function textToBinary(text) {
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(text);
+            return Array.from(bytes)
+                .map(b => b.toString(2).padStart(8, '0'))
+                .join(' ');
+        }
+
+        function convert() {
+            const input = inputArea.value;
+            if (!input.trim()) {
+                outputArea.textContent = 'Результат появится здесь...';
+                outputArea.classList.add('empty');
+                return;
+            }
+
+            outputArea.classList.remove('empty');
+            if (mode === 'bin2text') {
+                outputArea.textContent = binaryToText(input);
+            } else {
+                outputArea.textContent = textToBinary(input);
+            }
+        }
+
+        inputArea.addEventListener('input', convert);
+
+        modeBinToText.addEventListener('click', () => {
+            mode = 'bin2text';
+            modeBinToText.classList.add('active');
+            modeTextToBin.classList.remove('active');
+            inputLabel.textContent = 'Двоичный код';
+            outputLabel.textContent = 'Текст';
+            inputArea.placeholder = '01001000 01100101 01101100 01101100 01101111';
+            inputArea.value = '';
+            outputArea.textContent = 'Результат появится здесь...';
+            outputArea.classList.add('empty');
+        });
+
+        modeTextToBin.addEventListener('click', () => {
+            mode = 'text2bin';
+            modeTextToBin.classList.add('active');
+            modeBinToText.classList.remove('active');
+            inputLabel.textContent = 'Текст';
+            outputLabel.textContent = 'Двоичный код';
+            inputArea.placeholder = 'Введите текст...';
+            inputArea.value = '';
+            outputArea.textContent = 'Результат появится здесь...';
+            outputArea.classList.add('empty');
+        });
+
+        btnCopy.addEventListener('click', () => {
+            const text = outputArea.textContent;
+            if (text && !outputArea.classList.contains('empty')) {
+                navigator.clipboard.writeText(text).then(() => {
+                    btnCopy.textContent = 'Готово!';
+                    setTimeout(() => btnCopy.textContent = 'Скопировать', 2000);
+                });
+            }
+        });
+
+        btnClear.addEventListener('click', () => {
+            inputArea.value = '';
+            outputArea.textContent = 'Результат появится здесь...';
+            outputArea.classList.add('empty');
+        });
+
+        btnSwap.addEventListener('click', () => {
+            const currentOutput = outputArea.textContent;
+            if (outputArea.classList.contains('empty')) return;
+
+            if (mode === 'bin2text') {
+                modeTextToBin.click();
+            } else {
+                modeBinToText.click();
+            }
+            inputArea.value = currentOutput;
+            convert();
+        });
+    </script>
+</body>
+</html>
