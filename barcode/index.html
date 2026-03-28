@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Расшифровать QR-код онлайн — QR сканер бесплатно по фото и с камеры</title>
-    <meta name="description" content="Расшифровать QR-код онлайн бесплатно. Загрузите скриншот, вставьте из буфера обмена или наведите камеру. QR сканер онлайн — распознать QR-код по фото мгновенно, без регистрации.">
-    <meta name="keywords" content="расшифровать qr код, расшифровка qr кода, qr сканер онлайн, сканер qr кодов онлайн, расшифровать qr код с картинки, расшифровать qr код из буфера обмена, распознать qr код, распознать qr-код по фото онлайн, qr код расшифровка, расшифровка qr кода онлайн, просканировать qr код онлайн, прочитать qr код онлайн, считать qr код онлайн, qr decoder, qr код в ссылку, как расшифровать qr код, сканер qr кода онлайн, qr код сканер онлайн, расшифровать скан-код">
-    <link rel="canonical" href="https://raskodiruy.ru/">
-    <meta property="og:title" content="Расшифровать QR-код онлайн — QR сканер бесплатно">
-    <meta property="og:description" content="QR сканер онлайн — расшифровать QR-код по фото, с камеры или из буфера обмена. Распознать QR-код мгновенно, без регистрации.">
+    <title>Сканер штрих-кода онлайн — Расшифровать штрих-код по фото</title>
+    <meta name="description" content="Сканер штрих-кода онлайн — расшифровать штрих-код по фото, считать штрих-код с камеры. Распознать штрих-код бесплатно, без регистрации. Barcode scanner онлайн.">
+    <meta name="keywords" content="сканер штрих кода онлайн, расшифровать штрих код, штрих код по фото, считать штрих код, barcode scanner, сканер штрих кодов, распознать штрих код">
+    <link rel="canonical" href="https://raskodiruy.ru/barcode">
+    <meta property="og:title" content="Сканер штрих-кода онлайн — Расшифровать штрих-код по фото">
+    <meta property="og:description" content="Сканер штрих-кода онлайн — расшифровать штрих-код по фото или с камеры. Распознать штрих-код мгновенно, бесплатно.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Расшифровать QR-код онлайн — Бесплатный сканер">
-    <meta name="twitter:description" content="Загрузите скриншот или наведите камеру — мгновенная расшифровка QR-кода.">
+    <meta name="twitter:title" content="Сканер штрих-кода онлайн — Расшифровать штрих-код">
+    <meta name="twitter:description" content="Загрузите фото штрих-кода или наведите камеру — мгновенная расшифровка.">
     <!-- Yandex.RTB -->
     <script>window.yaContextCb=window.yaContextCb||[]</script>
     <script src="https://yandex.ru/ads/system/context.js" async></script>
@@ -36,9 +36,9 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "QR Сканер",
-        "description": "QR сканер онлайн — расшифровать QR-код по фото, с камеры или из буфера обмена. Распознать QR-код мгновенно, бесплатно",
-        "url": "https://raskodiruy.ru/",
+        "name": "Сканер штрих-кода",
+        "description": "Сканер штрих-кода онлайн — расшифровать штрих-код по фото или с камеры. Распознать штрих-код мгновенно, бесплатно.",
+        "url": "https://raskodiruy.ru/barcode",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -276,6 +276,20 @@
             margin-bottom: 12px;
         }
 
+        .result-type {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #9A3412;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            background: var(--background);
+            display: inline-block;
+            padding: 4px 10px;
+            border: 2px solid var(--surface);
+            border-radius: 4px;
+        }
+
         .result-content {
             font-family: var(--font-mono);
             font-size: 14px;
@@ -288,15 +302,17 @@
             border-radius: 4px;
         }
 
-        .result-content a {
+        .result-code {
+            font-family: var(--font-display);
+            font-size: 28px;
             color: var(--primary);
-            text-decoration: none;
-            font-weight: 400;
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .result-content a:hover {
-            border-bottom-color: var(--primary);
+            letter-spacing: 3px;
+            text-align: center;
+            padding: 20px 16px;
+            background: var(--background);
+            border: var(--border-width) solid var(--surface);
+            border-radius: 4px;
+            word-break: break-all;
         }
 
         .result-actions {
@@ -318,6 +334,9 @@
             transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
         }
 
         .btn-small:hover {
@@ -361,12 +380,18 @@
 
         .camera-container.visible { display: block; }
 
-        .camera-container video {
+        #camera-viewport {
+            width: 100%;
+            background: #000;
+            max-height: 70vh;
+            overflow: hidden;
+        }
+
+        #camera-viewport video,
+        #camera-viewport canvas {
             width: 100%;
             display: block;
-            background: #000;
             object-fit: cover;
-            max-height: 70vh;
         }
 
         .camera-overlay {
@@ -374,8 +399,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
+            width: 260px;
+            height: 120px;
             border: var(--border-width) solid var(--secondary);
             border-radius: 4px;
             pointer-events: none;
@@ -403,6 +428,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 10;
         }
 
         .camera-close:hover {
@@ -593,34 +619,35 @@
             .scan-area { padding: 36px 16px; }
             .buttons { flex-direction: column; }
             .features-grid { grid-template-columns: 1fr; }
+            .result-code { font-size: 20px; letter-spacing: 2px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="/" class="active">QR Сканер</a>
+        <a href="/">QR Сканер</a>
         <a href="/binary">Двоичный код</a>
         <a href="/md5">MD5</a>
         <a href="/ascii">ASCII</a>
         <a href="/base64">Base64</a>
         <a href="/hex">HEX</a>
         <a href="/url">URL</a>
-        <a href="/barcode">Штрих-код</a>
+        <a href="/barcode" class="active">Штрих-код</a>
     </nav>
 
     <main class="page-wrapper">
-        <h1>QR Сканер</h1>
-        <p class="subtitle">Расшифруй QR-код за секунду!</p>
+        <h1>Сканер штрих-кода</h1>
+        <p class="subtitle">Расшифруй штрих-код за секунду!</p>
 
         <div class="scan-area" id="dropZone">
             <svg class="scan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/>
-                <rect x="7" y="7" width="10" height="10" rx="1"/>
+                <path d="M2 4h2M2 4v6M22 4h-2M22 4v6M2 20h2M2 20v-6M22 20h-2M22 20v-6"/>
+                <path d="M6 7v10M8 7v10M11 7v10M14 7v10M16 7v10M18 7v10" stroke-width="1.5"/>
             </svg>
-            <p>Бросай картинку сюда!</p>
+            <p>Бросай фото штрих-кода сюда!</p>
             <p class="hint">или нажми чтобы выбрать файл &middot; Ctrl+V вставить из буфера</p>
-            <img class="preview-img" id="preview" alt="Превью загруженного QR-кода">
+            <img class="preview-img" id="preview" alt="Превью загруженного штрих-кода">
         </div>
 
         <input type="file" id="fileInput" accept="image/*" hidden>
@@ -628,7 +655,7 @@
         <div class="buttons">
             <button class="btn btn-primary" id="btnUpload">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-                Скриншот
+                Загрузить
             </button>
             <button class="btn btn-secondary" id="btnCamera">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
@@ -637,17 +664,18 @@
         </div>
 
         <div class="camera-container" id="cameraContainer">
-            <video id="video" autoplay playsinline></video>
+            <div id="camera-viewport"></div>
             <div class="camera-overlay"></div>
             <button class="camera-close" id="cameraClose">&times;</button>
         </div>
 
         <div class="result-box" id="resultBox">
             <div class="result-label">Результат</div>
-            <div class="result-content" id="resultContent"></div>
+            <div class="result-type" id="resultType"></div>
+            <div class="result-code" id="resultCode"></div>
             <div class="result-actions">
                 <button class="btn-small" id="btnCopy">Скопировать</button>
-                <button class="btn-small" id="btnOpen" style="display:none">Открыть</button>
+                <a class="btn-small" id="btnSearch" href="#" target="_blank" rel="noopener" style="display:none">Найти товар</a>
             </div>
         </div>
 
@@ -655,13 +683,13 @@
 
         <!-- SEO content -->
         <section class="seo-content">
-            <h2>Как расшифровать QR-код онлайн</h2>
-            <p>Наш QR сканер онлайн работает прямо в браузере — не нужно устанавливать приложения или проходить регистрацию. Расшифровать QR-код с картинки, из буфера обмена или с камеры — просканировать QR-код онлайн можно за секунду. Вы мгновенно получите содержимое: ссылку, текст, контактные данные или любую другую информацию. Распознать QR-код по фото онлайн ещё никогда не было так просто.</p>
+            <h2>Как расшифровать штрих-код онлайн</h2>
+            <p>Наш сканер штрих-кодов онлайн работает прямо в браузере — не нужно устанавливать приложения или проходить регистрацию. Загрузите фото штрих-кода, вставьте скриншот из буфера обмена или наведите камеру — и мгновенно получите номер товара. Распознать штрих-код по фото онлайн ещё никогда не было так просто.</p>
 
             <ol class="how-to-list">
-                <li><span class="step-num">1.</span> Сделайте скриншот QR-кода или сохраните фото</li>
-                <li><span class="step-num">2.</span> Загрузите изображение на сайт — перетащите, выберите файл или нажмите Ctrl+V</li>
-                <li><span class="step-num">3.</span> Результат появится мгновенно — скопируйте или перейдите по ссылке</li>
+                <li><span class="step-num">1.</span> Сфотографируйте штрих-код или сделайте скриншот</li>
+                <li><span class="step-num">2.</span> Загрузите изображение — перетащите, выберите файл или нажмите Ctrl+V</li>
+                <li><span class="step-num">3.</span> Номер штрих-кода появится мгновенно — скопируйте или найдите товар</li>
             </ol>
 
             <h2>Возможности</h2>
@@ -671,21 +699,21 @@
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     </div>
                     <h3>Мгновенно</h3>
-                    <p>Расшифровка за доли секунды. Всё работает на вашем устройстве, без отправки данных на сервер.</p>
+                    <p>Расшифровка штрих-кода за доли секунды. Всё работает на вашем устройстве, без отправки данных на сервер.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
                     </div>
                     <h3>Камера</h3>
-                    <p>Наведите камеру телефона на QR-код — сканер распознает его автоматически в реальном времени.</p>
+                    <p>Наведите камеру на штрих-код — сканер распознает его автоматически в реальном времени.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><path d="M9 14l2 2 4-4"/></svg>
                     </div>
-                    <h3>Из буфера</h3>
-                    <p>Сделайте скриншот и нажмите Ctrl+V — изображение вставится и расшифруется автоматически.</p>
+                    <h3>Все форматы</h3>
+                    <p>EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, ITF — поддерживаются все популярные форматы.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
@@ -696,43 +724,42 @@
                 </div>
             </div>
 
-            <h2>Какие QR-коды можно расшифровать</h2>
-            <p>Сканер распознаёт все стандартные QR-коды (ISO/IEC 18004): ссылки на сайты, текстовые сообщения, контактные данные (vCard), Wi-Fi пароли, геолокации и любые другие данные, закодированные в формате QR. Преобразование QR-кода в ссылку происходит мгновенно. Поддерживаются QR-коды всех версий и уровней коррекции ошибок.</p>
+            <h2>Что такое штрих-код и какие они бывают</h2>
+            <p>Штрих-код (barcode) — это графическое представление данных в виде чередующихся чёрных и белых полос разной ширины. Штрих-коды используются для автоматической идентификации товаров, посылок, документов и других объектов. Каждый штрих-код содержит числовую или буквенно-числовую информацию, которую можно считать специальным сканером или камерой.</p>
 
-            <h2>QR-код сканер — считать и прочитать QR-код онлайн</h2>
-            <p>Наш сервис расшифровки QR-кода позволяет считать QR-код онлайн с любого устройства. Просто загрузите скриншот или фото — сканер QR-кодов онлайн распознает код и покажет результат. Если в QR-коде зашифрована ссылка, вы сможете сразу перейти по ней. Расшифровка QR-кода онлайн работает бесплатно и без ограничений.</p>
+            <p>Самый распространённый тип — <strong>EAN-13</strong> (European Article Number). Это 13-значный код, который можно увидеть на любом товаре в магазине. Первые 2-3 цифры обозначают страну производителя, следующие — код предприятия и товара, а последняя цифра — контрольная. <strong>UPC-A</strong> — американский аналог из 12 цифр, широко используется в США и Канаде.</p>
+
+            <p><strong>Code 128</strong> — универсальный штрих-код, который может кодировать буквы, цифры и спецсимволы. Часто используется в логистике и на почтовых отправлениях. <strong>Code 39</strong> и <strong>Code 93</strong> — также буквенно-числовые коды, применяемые в промышленности и армии.</p>
+
+            <h2>Чем штрих-код отличается от QR-кода</h2>
+            <p>Штрих-код — это одномерный (1D) код, состоящий из вертикальных полос. Он хранит ограниченный объём данных — обычно только число (например, номер товара). QR-код — двумерный (2D) код, который может содержать гораздо больше информации: ссылки, текст, контактные данные, Wi-Fi пароли. Штрих-коды считываются в одном направлении, а QR-коды — в двух, что делает их более ёмкими.</p>
 
             <div class="faq-section">
                 <h2>Частые вопросы</h2>
 
                 <details class="faq-item">
-                    <summary>Как считать QR-код с картинки на компьютере?</summary>
-                    <div class="faq-answer">Сделайте скриншот QR-кода (Win+Shift+S на Windows или Cmd+Shift+4 на Mac), затем нажмите Ctrl+V на нашем сайте. Изображение автоматически вставится и расшифруется. Также можно перетащить файл с изображением прямо на страницу.</div>
+                    <summary>Что такое штрих-код?</summary>
+                    <div class="faq-answer">Штрих-код — это способ кодирования информации в виде последовательности чёрных и белых полос разной ширины. Чаще всего штрих-коды встречаются на товарах в магазинах — они содержат уникальный номер товара, по которому можно узнать производителя, страну происхождения и другие данные.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Можно ли сканировать QR-код с телефона?</summary>
-                    <div class="faq-answer">Да! Нажмите кнопку «Камера» и разрешите доступ к камере. Наведите камеру на QR-код — он будет распознан автоматически. Также можно загрузить скриншот или фото из галереи.</div>
+                    <summary>Чем штрих-код отличается от QR-кода?</summary>
+                    <div class="faq-answer">Штрих-код — одномерный (1D), состоит из вертикальных полос и хранит только числа или короткие строки. QR-код — двумерный (2D), выглядит как квадрат из точек и может хранить гораздо больше информации: ссылки, тексты, контакты. Для считывания QR-кода используйте наш <a href="/" style="color: var(--primary); border-bottom: 2px solid var(--secondary); text-decoration: none;">QR сканер</a>.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Это бесплатно?</summary>
-                    <div class="faq-answer">Полностью бесплатно, без ограничений и без регистрации. Сканируйте сколько угодно QR-кодов.</div>
+                    <summary>Можно ли узнать товар по штрих-коду?</summary>
+                    <div class="faq-answer">Да! После сканирования штрих-кода нажмите кнопку «Найти товар» — откроется поиск Google с номером штрих-кода. Вы сможете узнать название товара, производителя, цены в разных магазинах и другую информацию.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Какие типы штрих-кодов поддерживаются?</summary>
+                    <div class="faq-answer">Наш сканер распознаёт все популярные форматы линейных штрих-кодов: EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, Interleaved 2 of 5 (ITF). Это покрывает практически все штрих-коды, которые встречаются на товарах, посылках и документах.</div>
                 </details>
 
                 <details class="faq-item">
                     <summary>Мои данные в безопасности?</summary>
                     <div class="faq-answer">Да. Всё распознавание происходит прямо в вашем браузере с помощью JavaScript. Изображения никуда не отправляются — они не покидают ваше устройство. Мы не храним и не обрабатываем ваши данные на сервере.</div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Почему QR-код не распознаётся?</summary>
-                    <div class="faq-answer">Убедитесь, что QR-код на изображении чёткий и не обрезан. Все три квадратных маркера в углах должны быть видны. Попробуйте загрузить изображение в более высоком разрешении или сделать скриншот покрупнее.</div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Какие форматы изображений поддерживаются?</summary>
-                    <div class="faq-answer">PNG, JPG, JPEG, GIF, BMP, WebP — любой формат изображений, который поддерживает ваш браузер.</div>
                 </details>
             </div>
         </section>
@@ -753,28 +780,36 @@
         QR Сканер &copy; 2026 &middot; <a href="/privacy">Политика конфиденциальности</a>
     </footer>
 
-    <!-- qr-scanner (Nimiq) — fast QR scanning with Web Workers -->
-    <script src="https://cdn.jsdelivr.net/npm/qr-scanner@1.4.2/qr-scanner.umd.min.js"></script>
+    <!-- Quagga2 library for barcode scanning -->
+    <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2@1.8.4/dist/quagga.min.js"></script>
 
     <script>
-        // Set worker path for qr-scanner
-        QrScanner.WORKER_PATH = 'https://cdn.jsdelivr.net/npm/qr-scanner@1.4.2/qr-scanner-worker.min.js';
-
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
         const preview = document.getElementById('preview');
         const resultBox = document.getElementById('resultBox');
-        const resultContent = document.getElementById('resultContent');
+        const resultCode = document.getElementById('resultCode');
+        const resultType = document.getElementById('resultType');
         const errorBox = document.getElementById('errorBox');
         const btnCopy = document.getElementById('btnCopy');
-        const btnOpen = document.getElementById('btnOpen');
+        const btnSearch = document.getElementById('btnSearch');
         const btnUpload = document.getElementById('btnUpload');
         const btnCamera = document.getElementById('btnCamera');
         const cameraContainer = document.getElementById('cameraContainer');
-        const video = document.getElementById('video');
         const cameraClose = document.getElementById('cameraClose');
 
-        let qrScanner = null;
+        const FORMAT_NAMES = {
+            'ean_reader': 'EAN-13',
+            'ean_8_reader': 'EAN-8',
+            'upc_reader': 'UPC-A',
+            'upc_e_reader': 'UPC-E',
+            'code_128_reader': 'Code 128',
+            'code_39_reader': 'Code 39',
+            'code_93_reader': 'Code 93',
+            'i2of5_reader': 'ITF (Interleaved 2 of 5)'
+        };
+
+        const READERS = ['ean_reader', 'ean_8_reader', 'upc_reader', 'upc_e_reader', 'code_128_reader', 'code_39_reader', 'code_93_reader', 'i2of5_reader'];
 
         // File upload
         btnUpload.addEventListener('click', () => fileInput.click());
@@ -816,42 +851,51 @@
         function processFile(file) {
             const reader = new FileReader();
             reader.onload = (e) => {
-                preview.src = e.target.result;
+                const dataURL = e.target.result;
+                preview.src = dataURL;
                 preview.style.display = 'block';
                 dropZone.classList.add('has-preview');
                 dropZone.querySelector('svg').style.display = 'none';
                 dropZone.querySelector('p').style.display = 'none';
                 dropZone.querySelector('.hint').style.display = 'none';
 
-                // Scan with qr-scanner from image
-                const img = new Image();
-                img.onload = () => {
-                    QrScanner.scanImage(img, { returnDetailedScanResult: true })
-                        .then(result => showResult(result.data))
-                        .catch(() => showError('QR-код не найден! Попробуй другое изображение.'));
-                };
-                img.src = e.target.result;
+                decodeBarcode(dataURL);
             };
             reader.readAsDataURL(file);
         }
 
-        function showResult(data) {
+        function decodeBarcode(imageDataURL) {
+            Quagga.decodeSingle({
+                src: imageDataURL,
+                numOfWorkers: 0,
+                inputStream: { size: 1920 },
+                decoder: {
+                    readers: READERS
+                },
+                locate: true
+            }, function(result) {
+                if (result && result.codeResult) {
+                    showResult(result.codeResult.code, result.codeResult.format);
+                } else {
+                    showError('Штрих-код не найден! Попробуй другое изображение.');
+                }
+            });
+        }
+
+        function showResult(code, format) {
             errorBox.classList.remove('visible');
             resultBox.classList.add('visible');
 
-            const isURL = /^https?:\/\//i.test(data);
-            if (isURL) {
-                resultContent.innerHTML = `<a href="${escapeHtml(data)}" target="_blank" rel="noopener">${escapeHtml(data)}</a>`;
-                btnOpen.style.display = 'inline-block';
-                btnOpen.onclick = () => window.open(data, '_blank', 'noopener');
-            } else {
-                resultContent.textContent = data;
-                btnOpen.style.display = 'none';
-            }
+            var formatName = FORMAT_NAMES[format] || format || 'Unknown';
+            resultType.textContent = formatName;
+            resultCode.textContent = code;
+
+            btnSearch.style.display = 'inline-flex';
+            btnSearch.href = 'https://www.google.com/search?q=' + encodeURIComponent(code + ' штрих код товар');
 
             btnCopy.textContent = 'Скопировать';
             btnCopy.onclick = () => {
-                copyToClipboard(data).then(() => {
+                copyToClipboard(code).then(() => {
                     btnCopy.textContent = 'Готово!';
                     setTimeout(() => btnCopy.textContent = 'Скопировать', 2000);
                 });
@@ -862,7 +906,7 @@
             if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
                 return navigator.clipboard.writeText(text);
             }
-            const ta = document.createElement('textarea');
+            var ta = document.createElement('textarea');
             ta.value = text;
             ta.style.position = 'fixed';
             ta.style.left = '-9999px';
@@ -879,13 +923,7 @@
             errorBox.classList.add('visible');
         }
 
-        function escapeHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
-
-        // Camera using qr-scanner built-in camera support
+        // Camera
         btnCamera.addEventListener('click', startCamera);
         cameraClose.addEventListener('click', stopCamera);
 
@@ -903,7 +941,7 @@
             // Check permission status first (if supported)
             try {
                 if (navigator.permissions && navigator.permissions.query) {
-                    const status = await navigator.permissions.query({ name: 'camera' });
+                    var status = await navigator.permissions.query({ name: 'camera' });
                     if (status.state === 'denied') {
                         showError('Доступ к камере заблокирован. Разрешите камеру в настройках браузера (значок замка в адресной строке) и попробуйте снова.');
                         return;
@@ -914,24 +952,62 @@
             }
 
             try {
-                // Create qr-scanner instance with video element
-                qrScanner = new QrScanner(video, result => {
-                    showResult(result.data);
-                    stopCamera();
-                }, {
-                    returnDetailedScanResult: true,
-                    highlightScanRegion: true,
-                    highlightCodeOutline: true,
-                    preferredCamera: 'environment'
+                cameraContainer.classList.add('visible');
+
+                Quagga.init({
+                    inputStream: {
+                        type: 'LiveStream',
+                        target: document.getElementById('camera-viewport'),
+                        constraints: {
+                            facingMode: 'environment',
+                            width: { ideal: 1920 },
+                            height: { ideal: 1080 }
+                        }
+                    },
+                    decoder: {
+                        readers: READERS
+                    },
+                    locate: true
+                }, function(err) {
+                    if (err) {
+                        cameraContainer.classList.remove('visible');
+                        if (err.name === 'NotAllowedError') {
+                            showError('Вы отклонили запрос на камеру. Разрешите доступ в настройках браузера (значок замка слева от адреса) и нажмите «Камера» ещё раз.');
+                        } else if (err.name === 'NotFoundError') {
+                            showError('Камера не найдена на этом устройстве. Попробуйте загрузить фото.');
+                        } else {
+                            showError('Не удалось включить камеру. Попробуйте загрузить фото.');
+                        }
+                        return;
+                    }
+                    Quagga.start();
+
+                    // Try to enable continuous autofocus
+                    try {
+                        var track = Quagga.CameraAccess.getActiveTrack();
+                        if (track) {
+                            var capabilities = track.getCapabilities ? track.getCapabilities() : {};
+                            if (capabilities.focusMode && capabilities.focusMode.includes('continuous')) {
+                                track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] });
+                            }
+                        }
+                    } catch (e) { /* autofocus not supported — ok */ }
                 });
 
-                await qrScanner.start();
-                cameraContainer.classList.add('visible');
+                Quagga.onDetected(function(result) {
+                    if (result && result.codeResult) {
+                        var code = result.codeResult.code;
+                        var format = result.codeResult.format;
+                        stopCamera();
+                        showResult(code, format);
+                    }
+                });
             } catch (err) {
-                if (err === 'Camera not found.') {
-                    showError('Камера не найдена на этом устройстве. Попробуйте загрузить фото.');
-                } else if (String(err).includes('denied') || String(err).includes('NotAllowed')) {
+                cameraContainer.classList.remove('visible');
+                if (err.name === 'NotAllowedError') {
                     showError('Вы отклонили запрос на камеру. Разрешите доступ в настройках браузера (значок замка слева от адреса) и нажмите «Камера» ещё раз.');
+                } else if (err.name === 'NotFoundError') {
+                    showError('Камера не найдена на этом устройстве. Попробуйте загрузить фото.');
                 } else {
                     showError('Не удалось включить камеру. Попробуйте загрузить фото.');
                 }
@@ -939,11 +1015,10 @@
         }
 
         function stopCamera() {
-            if (qrScanner) {
-                qrScanner.stop();
-                qrScanner.destroy();
-                qrScanner = null;
-            }
+            try {
+                Quagga.offDetected();
+                Quagga.stop();
+            } catch (e) { /* ignore */ }
             cameraContainer.classList.remove('visible');
         }
     </script>
