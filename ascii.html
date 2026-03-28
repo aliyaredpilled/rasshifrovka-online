@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII таблица онлайн — Полная таблица символов ASCII</title>
+    <meta name="description" content="Полная интерактивная ASCII таблица онлайн. Все 128 символов ASCII с кодами, HEX-значениями и описаниями. Поиск и копирование символов в один клик.">
+    <meta name="keywords" content="ascii таблица онлайн, таблица ascii кодов, ascii символы, ascii коды символов, таблица аски кодов, ascii table">
+    <link rel="canonical" href="https://raskodiruy.ru/ascii.html">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108287344', 'ym');
+        ym(108287344, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/108287344" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ASCII таблица онлайн",
+        "description": "Полная интерактивная ASCII таблица с поиском, HEX-кодами и описаниями всех 128 символов",
+        "url": "https://raskodiruy.ru/ascii.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        },
+        "inLanguage": "ru"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Что такое ASCII?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ASCII (American Standard Code for Information Interchange) — это стандарт кодирования символов, разработанный в 1963 году. Он определяет 128 символов с кодами от 0 до 127, включая латинские буквы, цифры, знаки препинания и управляющие символы."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Сколько символов в таблице ASCII?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Стандартная таблица ASCII содержит 128 символов (коды 0–127). Из них 33 — управляющие (непечатаемые) символы, а 95 — печатаемые символы, включая буквы, цифры и специальные знаки."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Чем отличается ASCII от Unicode?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ASCII содержит только 128 символов и поддерживает лишь латиницу. Unicode — это расширенный стандарт, включающий более 149 000 символов из всех письменностей мира, включая кириллицу, иероглифы и эмодзи. Первые 128 символов Unicode совпадают с ASCII."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Что такое управляющие символы ASCII?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Управляющие символы ASCII (коды 0–31 и 127) — это непечатаемые символы, предназначенные для управления устройствами. Например, код 10 (LF) — перевод строки, код 13 (CR) — возврат каретки, код 9 (TAB) — табуляция, код 27 (ESC) — escape."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Как узнать ASCII-код символа?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Воспользуйтесь нашей интерактивной таблицей выше: введите символ в поле поиска, и вы увидите его десятичный и шестнадцатеричный (HEX) код. Также можно кликнуть по строке таблицы, чтобы скопировать символ."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #EA580B;
+            --secondary: #F59E0B;
+            --background: #FFEDD5;
+            --surface: #FDBA74;
+            --text: #EA580C;
+            --border-width: 4px;
+            --font-display: 'Russo One', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-mono);
+            background-color: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border: var(--border-width) solid var(--surface);
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            border: var(--border-width) solid var(--secondary);
+            transform: rotate(45deg);
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-bottom: var(--border-width) solid #C2410C;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 14px;
+            padding: 8px 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: white;
+        }
+
+        nav a.active {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 24px;
+            opacity: 0.8;
+        }
+
+        .ad-banner {
+            background: var(--surface);
+            border: var(--border-width) solid var(--primary);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 24px;
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        .search-box {
+            background: white;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .search-box label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px;
+            font-family: var(--font-mono);
+            font-size: 16px;
+            border: var(--border-width) solid var(--surface);
+            border-radius: 8px;
+            background: #FFF7ED;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+        }
+
+        .search-box input::placeholder {
+            color: var(--surface);
+        }
+
+        .table-wrapper {
+            background: white;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .ascii-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ascii-table thead th {
+            background: var(--primary);
+            color: white;
+            font-family: var(--font-display);
+            font-size: 14px;
+            padding: 12px 16px;
+            text-align: left;
+            border-right: var(--border-width) solid #C2410C;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .ascii-table thead th:last-child {
+            border-right: none;
+        }
+
+        .ascii-table tbody tr {
+            cursor: pointer;
+            transition: background-color 0.15s;
+        }
+
+        .ascii-table tbody tr:nth-child(odd) {
+            background-color: #FFF7ED;
+        }
+
+        .ascii-table tbody tr:nth-child(even) {
+            background-color: var(--background);
+        }
+
+        .ascii-table tbody tr:hover {
+            background-color: var(--surface) !important;
+        }
+
+        .ascii-table tbody td {
+            padding: 10px 16px;
+            font-size: 14px;
+            border-right: var(--border-width) solid #FED7AA;
+            border-bottom: 1px solid #FED7AA;
+        }
+
+        .ascii-table tbody td:last-child {
+            border-right: none;
+        }
+
+        .ascii-table .char-cell {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .ascii-table .code-cell {
+            font-family: var(--font-mono);
+            font-weight: bold;
+        }
+
+        .ascii-table .desc-cell {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--primary);
+            color: white;
+            font-family: var(--font-display);
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: var(--border-width) solid #C2410C;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            font-family: var(--font-display);
+            font-size: 16px;
+            color: var(--surface);
+            display: none;
+        }
+
+        .stats {
+            text-align: center;
+            font-size: 13px;
+            margin-bottom: 16px;
+            opacity: 0.7;
+        }
+
+        .btn-small {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary);
+            color: white;
+            border: var(--border-width) solid #C2410C;
+            border-radius: 8px;
+            font-family: var(--font-display);
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-small:hover {
+            background: #C2410C;
+            transform: translateY(-1px);
+        }
+
+        .seo-content {
+            background: white;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .seo-content h2 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .seo-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .faq-section {
+            background: white;
+            border: var(--border-width) solid var(--primary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .faq-section h2 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .faq-item {
+            border: var(--border-width) solid var(--surface);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 14px 18px;
+            font-family: var(--font-display);
+            font-size: 14px;
+            cursor: pointer;
+            background: #FFF7ED;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .faq-question:hover {
+            background: var(--background);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .faq-item.open .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            padding: 14px 18px;
+            max-height: 300px;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            border-top: var(--border-width) solid #C2410C;
+            margin-top: 24px;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 22px; }
+            nav a { font-size: 12px; padding: 6px 10px; }
+            .ascii-table thead th { font-size: 12px; padding: 10px 8px; }
+            .ascii-table tbody td { padding: 8px; font-size: 13px; }
+            .ascii-table .char-cell { font-size: 15px; }
+            .desc-cell { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/">QR Сканер</a>
+    <a href="/binary.html">Двоичный код</a>
+    <a href="/md5.html">MD5</a>
+    <a href="/ascii.html" class="active">ASCII</a>
+</nav>
+
+<div class="container">
+    <h1>ASCII таблица онлайн</h1>
+    <p class="subtitle">Полная таблица из 128 символов ASCII с кодами, HEX и описаниями</p>
+
+    <div class="ad-banner">Рекламный блок — raskodiruy.ru</div>
+
+    <div class="search-box">
+        <label for="searchInput">Поиск по таблице</label>
+        <input type="text" id="searchInput" placeholder="Введите код, символ или описание..." autocomplete="off">
+    </div>
+
+    <p class="stats" id="statsText">Показано символов: 128 из 128</p>
+
+    <div class="table-wrapper">
+        <table class="ascii-table" id="asciiTable">
+            <thead>
+                <tr>
+                    <th>Код</th>
+                    <th>Hex</th>
+                    <th>Символ</th>
+                    <th class="desc-cell">Описание</th>
+                </tr>
+            </thead>
+            <tbody id="asciiBody">
+            </tbody>
+        </table>
+    </div>
+
+    <p class="no-results" id="noResults">Ничего не найдено. Попробуйте другой запрос.</p>
+
+    <div class="ad-banner">Рекламный блок — raskodiruy.ru</div>
+
+    <div class="seo-content">
+        <h2>Что такое ASCII таблица</h2>
+        <p>ASCII (American Standard Code for Information Interchange) — американский стандартный код обмена информацией. Это система кодирования, в которой каждому символу соответствует число от 0 до 127. Стандарт был разработан в 1963 году и до сих пор лежит в основе всех современных кодировок, включая UTF-8.</p>
+        <p>Таблица ASCII содержит 128 символов: 33 управляющих (непечатаемых) символа с кодами 0–31 и 127, а также 95 печатаемых символов — латинские буквы (A–Z, a–z), цифры (0–9), знаки препинания и специальные символы. Наша интерактивная таблица позволяет быстро найти нужный символ по коду, HEX-значению или описанию.</p>
+        <p>Используйте поиск вверху страницы для мгновенной фильтрации. Кликните по любой строке таблицы, чтобы скопировать символ в буфер обмена. Таблица ascii кодов полезна программистам, веб-разработчикам и всем, кто работает с кодировками текста.</p>
+    </div>
+
+    <div class="faq-section">
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Что такое ASCII?</div>
+            <div class="faq-answer">ASCII (American Standard Code for Information Interchange) — это стандарт кодирования символов, разработанный в 1963 году. Он определяет 128 символов с кодами от 0 до 127, включая латинские буквы, цифры, знаки препинания и управляющие символы. ASCII стал основой для большинства современных кодировок.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Сколько символов в таблице ASCII?</div>
+            <div class="faq-answer">Стандартная таблица ASCII содержит 128 символов (коды 0–127). Из них 33 — управляющие (непечатаемые) символы, а 95 — печатаемые символы, включая буквы, цифры и специальные знаки. Существует также расширенная таблица ASCII с кодами 128–255, но она не является частью оригинального стандарта.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Чем отличается ASCII от Unicode?</div>
+            <div class="faq-answer">ASCII содержит только 128 символов и поддерживает лишь латиницу. Unicode — это расширенный стандарт, включающий более 149 000 символов из всех письменностей мира, включая кириллицу, иероглифы и эмодзи. Первые 128 символов Unicode полностью совпадают с ASCII, что обеспечивает обратную совместимость.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Что такое управляющие символы ASCII?</div>
+            <div class="faq-answer">Управляющие символы ASCII (коды 0–31 и 127) — это непечатаемые символы, изначально предназначенные для управления устройствами вроде телетайпов. Например, код 10 (LF) — перевод строки, код 13 (CR) — возврат каретки, код 9 (TAB) — горизонтальная табуляция, код 27 (ESC) — escape. Многие из них до сих пор используются в программировании.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Как узнать ASCII-код символа?</div>
+            <div class="faq-answer">Воспользуйтесь нашей интерактивной таблицей выше — введите символ в поле поиска, и вы мгновенно увидите его десятичный и шестнадцатеричный (HEX) код. Также можно кликнуть по строке таблицы, чтобы скопировать символ. В языках программирования ASCII-код можно получить функциями: ord() в Python, charCodeAt() в JavaScript, (int) в C/C++.</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 raskodiruy.ru — <a href="/privacy.html">Политика конфиденциальности</a></p>
+</footer>
+
+<div class="copy-toast" id="copyToast">Скопировано!</div>
+
+<script>
+const ASCII_DATA = [
+    [0,'00','NUL','Null (Пустой символ)'],
+    [1,'01','SOH','Start of Heading (Начало заголовка)'],
+    [2,'02','STX','Start of Text (Начало текста)'],
+    [3,'03','ETX','End of Text (Конец текста)'],
+    [4,'04','EOT','End of Transmission (Конец передачи)'],
+    [5,'05','ENQ','Enquiry (Запрос)'],
+    [6,'06','ACK','Acknowledge (Подтверждение)'],
+    [7,'07','BEL','Bell (Звуковой сигнал)'],
+    [8,'08','BS','Backspace (Возврат на символ)'],
+    [9,'09','TAB','Horizontal Tab (Табуляция)'],
+    [10,'0A','LF','Line Feed (Перевод строки)'],
+    [11,'0B','VT','Vertical Tab (Вертикальная табуляция)'],
+    [12,'0C','FF','Form Feed (Перевод страницы)'],
+    [13,'0D','CR','Carriage Return (Возврат каретки)'],
+    [14,'0E','SO','Shift Out'],
+    [15,'0F','SI','Shift In'],
+    [16,'10','DLE','Data Link Escape'],
+    [17,'11','DC1','Device Control 1 (XON)'],
+    [18,'12','DC2','Device Control 2'],
+    [19,'13','DC3','Device Control 3 (XOFF)'],
+    [20,'14','DC4','Device Control 4'],
+    [21,'15','NAK','Negative Acknowledge (Отказ)'],
+    [22,'16','SYN','Synchronous Idle (Синхронизация)'],
+    [23,'17','ETB','End of Transmission Block'],
+    [24,'18','CAN','Cancel (Отмена)'],
+    [25,'19','EM','End of Medium (Конец носителя)'],
+    [26,'1A','SUB','Substitute (Подстановка)'],
+    [27,'1B','ESC','Escape (Переключение)'],
+    [28,'1C','FS','File Separator (Разделитель файлов)'],
+    [29,'1D','GS','Group Separator (Разделитель групп)'],
+    [30,'1E','RS','Record Separator (Разделитель записей)'],
+    [31,'1F','US','Unit Separator (Разделитель полей)'],
+    [32,'20','&#9251;','Space (Пробел)'],
+    [33,'21','!','Восклицательный знак'],
+    [34,'22','&quot;','Двойная кавычка'],
+    [35,'23','#','Решётка'],
+    [36,'24','$','Знак доллара'],
+    [37,'25','%','Процент'],
+    [38,'26','&amp;','Амперсанд'],
+    [39,'27',"'",'Апостроф'],
+    [40,'28','(','Открывающая скобка'],
+    [41,'29',')','Закрывающая скобка'],
+    [42,'2A','*','Звёздочка'],
+    [43,'2B','+','Плюс'],
+    [44,'2C',',','Запятая'],
+    [45,'2D','-','Дефис / минус'],
+    [46,'2E','.','Точка'],
+    [47,'2F','/','Косая черта'],
+    [48,'30','0','Цифра ноль'],
+    [49,'31','1','Цифра один'],
+    [50,'32','2','Цифра два'],
+    [51,'33','3','Цифра три'],
+    [52,'34','4','Цифра четыре'],
+    [53,'35','5','Цифра пять'],
+    [54,'36','6','Цифра шесть'],
+    [55,'37','7','Цифра семь'],
+    [56,'38','8','Цифра восемь'],
+    [57,'39','9','Цифра девять'],
+    [58,'3A',':','Двоеточие'],
+    [59,'3B',';','Точка с запятой'],
+    [60,'3C','&lt;','Знак меньше'],
+    [61,'3D','=','Знак равенства'],
+    [62,'3E','&gt;','Знак больше'],
+    [63,'3F','?','Вопросительный знак'],
+    [64,'40','@','Собака (at)'],
+    [65,'41','A','Латинская заглавная A'],
+    [66,'42','B','Латинская заглавная B'],
+    [67,'43','C','Латинская заглавная C'],
+    [68,'44','D','Латинская заглавная D'],
+    [69,'45','E','Латинская заглавная E'],
+    [70,'46','F','Латинская заглавная F'],
+    [71,'47','G','Латинская заглавная G'],
+    [72,'48','H','Латинская заглавная H'],
+    [73,'49','I','Латинская заглавная I'],
+    [74,'4A','J','Латинская заглавная J'],
+    [75,'4B','K','Латинская заглавная K'],
+    [76,'4C','L','Латинская заглавная L'],
+    [77,'4D','M','Латинская заглавная M'],
+    [78,'4E','N','Латинская заглавная N'],
+    [79,'4F','O','Латинская заглавная O'],
+    [80,'50','P','Латинская заглавная P'],
+    [81,'51','Q','Латинская заглавная Q'],
+    [82,'52','R','Латинская заглавная R'],
+    [83,'53','S','Латинская заглавная S'],
+    [84,'54','T','Латинская заглавная T'],
+    [85,'55','U','Латинская заглавная U'],
+    [86,'56','V','Латинская заглавная V'],
+    [87,'57','W','Латинская заглавная W'],
+    [88,'58','X','Латинская заглавная X'],
+    [89,'59','Y','Латинская заглавная Y'],
+    [90,'5A','Z','Латинская заглавная Z'],
+    [91,'5B','[','Открывающая квадратная скобка'],
+    [92,'5C','\\','Обратная косая черта'],
+    [93,'5D',']','Закрывающая квадратная скобка'],
+    [94,'5E','^','Циркумфлекс'],
+    [95,'5F','_','Нижнее подчёркивание'],
+    [96,'60','`','Обратный апостроф'],
+    [97,'61','a','Латинская строчная a'],
+    [98,'62','b','Латинская строчная b'],
+    [99,'63','c','Латинская строчная c'],
+    [100,'64','d','Латинская строчная d'],
+    [101,'65','e','Латинская строчная e'],
+    [102,'66','f','Латинская строчная f'],
+    [103,'67','g','Латинская строчная g'],
+    [104,'68','h','Латинская строчная h'],
+    [105,'69','i','Латинская строчная i'],
+    [106,'6A','j','Латинская строчная j'],
+    [107,'6B','k','Латинская строчная k'],
+    [108,'6C','l','Латинская строчная l'],
+    [109,'6D','m','Латинская строчная m'],
+    [110,'6E','n','Латинская строчная n'],
+    [111,'6F','o','Латинская строчная o'],
+    [112,'70','p','Латинская строчная p'],
+    [113,'71','q','Латинская строчная q'],
+    [114,'72','r','Латинская строчная r'],
+    [115,'73','s','Латинская строчная s'],
+    [116,'74','t','Латинская строчная t'],
+    [117,'75','u','Латинская строчная u'],
+    [118,'76','v','Латинская строчная v'],
+    [119,'77','w','Латинская строчная w'],
+    [120,'78','x','Латинская строчная x'],
+    [121,'79','y','Латинская строчная y'],
+    [122,'7A','z','Латинская строчная z'],
+    [123,'7B','{','Открывающая фигурная скобка'],
+    [124,'7C','|','Вертикальная черта'],
+    [125,'7D','}','Закрывающая фигурная скобка'],
+    [126,'7E','~','Тильда'],
+    [127,'7F','DEL','Delete (Удаление)']
+];
+
+const tbody = document.getElementById('asciiBody');
+const searchInput = document.getElementById('searchInput');
+const statsText = document.getElementById('statsText');
+const noResults = document.getElementById('noResults');
+const copyToast = document.getElementById('copyToast');
+
+function getPlainChar(code) {
+    if (code <= 31 || code === 127) return ASCII_DATA[code][2];
+    return String.fromCharCode(code);
+}
+
+function buildTable(filter) {
+    const q = (filter || '').toLowerCase().trim();
+    let html = '';
+    let count = 0;
+
+    for (let i = 0; i < ASCII_DATA.length; i++) {
+        const row = ASCII_DATA[i];
+        const dec = String(row[0]);
+        const hex = row[1];
+        const sym = row[2];
+        const desc = row[3];
+        const plainChar = getPlainChar(row[0]);
+
+        if (q) {
+            const match = dec.includes(q)
+                || hex.toLowerCase().includes(q)
+                || plainChar.toLowerCase().includes(q)
+                || sym.toLowerCase().includes(q)
+                || desc.toLowerCase().includes(q);
+            if (!match) continue;
+        }
+
+        count++;
+        html += '<tr data-char="' + plainChar.replace(/"/g, '&quot;') + '" onclick="copyChar(this)">';
+        html += '<td class="code-cell">' + dec + '</td>';
+        html += '<td class="code-cell">0x' + hex + '</td>';
+        html += '<td class="char-cell">' + sym + '</td>';
+        html += '<td class="desc-cell">' + desc + '</td>';
+        html += '</tr>';
+    }
+
+    tbody.innerHTML = html;
+    statsText.textContent = 'Показано символов: ' + count + ' из 128';
+    noResults.style.display = count === 0 ? 'block' : 'none';
+}
+
+function copyChar(tr) {
+    const ch = tr.getAttribute('data-char');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ch).then(showToast);
+    } else {
+        const ta = document.createElement('textarea');
+        ta.value = ch;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast();
+    }
+}
+
+function showToast() {
+    copyToast.classList.add('show');
+    setTimeout(function() { copyToast.classList.remove('show'); }, 1500);
+}
+
+function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+}
+
+searchInput.addEventListener('input', function() {
+    buildTable(this.value);
+});
+
+buildTable('');
+</script>
+
+</body>
+</html>
