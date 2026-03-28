@@ -1,0 +1,1 @@
+- [QR Scanner Project](project_qr_scanner.md) — utility site for Russian market, ad monetization, Energetic design
