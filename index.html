@@ -893,6 +893,29 @@
         cameraClose.addEventListener('click', stopCamera);
 
         async function startCamera() {
+            // Check if camera API is available (requires HTTPS)
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                if (location.protocol === 'http:') {
+                    showError('Камера требует HTTPS-соединения. Попробуйте загрузить фото вместо камеры.');
+                } else {
+                    showError('Ваш браузер не поддерживает доступ к камере.');
+                }
+                return;
+            }
+
+            // Check permission status first (if supported)
+            try {
+                if (navigator.permissions && navigator.permissions.query) {
+                    const status = await navigator.permissions.query({ name: 'camera' });
+                    if (status.state === 'denied') {
+                        showError('Доступ к камере заблокирован. Разрешите камеру в настройках браузера (значок замка в адресной строке) и попробуйте снова.');
+                        return;
+                    }
+                }
+            } catch (e) {
+                // permissions.query may not support 'camera' in all browsers — continue
+            }
+
             try {
                 cameraStream = await navigator.mediaDevices.getUserMedia({
                     video: { facingMode: 'environment' }
@@ -916,7 +939,13 @@
                     }
                 }, 300);
             } catch (err) {
-                showError('Нет доступа к камере! Проверь разрешения.');
+                if (err.name === 'NotAllowedError') {
+                    showError('Вы отклонили запрос на камеру. Разрешите доступ в настройках браузера (значок замка слева от адреса) и нажмите «Камера» ещё раз.');
+                } else if (err.name === 'NotFoundError') {
+                    showError('Камера не найдена на этом устройстве. Попробуйте загрузить фото.');
+                } else {
+                    showError('Не удалось включить камеру. Попробуйте загрузить фото.');
+                }
             }
         }
 
