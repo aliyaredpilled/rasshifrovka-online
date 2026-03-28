@@ -72,7 +72,6 @@
             flex-direction: column;
         }
 
-        /* Navigation */
         nav {
             background: #FFF7ED;
             border-bottom: var(--border-width) solid var(--primary);
@@ -103,25 +102,6 @@
         nav a.active {
             color: var(--primary);
             border-bottom-color: var(--primary);
-        }
-
-        .ad-banner {
-            background: #FFF7ED;
-            border-bottom: var(--border-width) solid var(--primary);
-            text-align: center;
-            padding: 12px;
-            font-size: 13px;
-            color: #9A3412;
-            min-height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-mono);
-        }
-
-        .ad-banner-bottom {
-            border-bottom: none;
-            border-top: var(--border-width) solid var(--primary);
         }
 
         .page-wrapper {
@@ -623,21 +603,6 @@
         <a href="/ascii.html">ASCII</a>
     </nav>
 
-    <!-- Место для рекламного баннера (верх) -->
-    <div class="ad-banner" id="ad-top">
-        <!-- Yandex.RTB R-A-19018803-2 -->
-        <div id="yandex_rtb_R-A-19018803-2"></div>
-        <script>
-        window.yaContextCb.push(() => {
-            Ya.Context.AdvManager.render({
-                "blockId": "R-A-19018803-2",
-                "renderTo": "yandex_rtb_R-A-19018803-2",
-                "type": "feed"
-            })
-        })
-        </script>
-    </div>
-
     <main class="page-wrapper">
         <h1>QR Сканер</h1>
         <p class="subtitle">Расшифруй QR-код за секунду!</p>
@@ -756,20 +721,16 @@
         </section>
     </main>
 
-    <!-- Место для рекламного баннера (низ) -->
-    <div class="ad-banner ad-banner-bottom" id="ad-bottom">
-        <!-- Yandex.RTB R-A-19018803-2 -->
-        <div id="yandex_rtb_R-A-19018803-2b"></div>
-        <script>
-        window.yaContextCb.push(() => {
-            Ya.Context.AdvManager.render({
-                "blockId": "R-A-19018803-2",
-                "renderTo": "yandex_rtb_R-A-19018803-2b",
-                "type": "feed"
-            })
+    <!-- Yandex.RTB R-A-19018803-1 Floor Ad -->
+    <script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-19018803-1",
+            "type": "floorAd",
+            "platform": "touch"
         })
-        </script>
-    </div>
+    })
+    </script>
 
     <footer>
         QR Сканер &copy; 2026 &middot; <a href="/privacy.html">Политика конфиденциальности</a>
