@@ -25,6 +25,24 @@
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>https://raskodiruy.ru/base64</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://raskodiruy.ru/hex</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://raskodiruy.ru/url</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
         <loc>https://raskodiruy.ru/privacy</loc>
         <lastmod>2026-03-28</lastmod>
         <changefreq>yearly</changefreq>

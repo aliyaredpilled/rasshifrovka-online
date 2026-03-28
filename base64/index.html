@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Двоичный код в текст онлайн — Расшифровка двоичного кода, бинарный переводчик</title>
-    <meta name="description" content="Двоичный код в текст — бесплатная расшифровка двоичного кода онлайн. Переведите бинарный код из 0 и 1 в текст или зашифруйте текст в двоичный код. Дешифратор бинарного кода мгновенно, без регистрации.">
-    <meta name="keywords" content="двоичный код в текст, расшифровка двоичного кода, двоичный код, расшифровать двоичный код, бинарный код в текст, бинарный код расшифровка, двоичный код переводчик, расшифровка двоичного кода в текст, дешифратор двоичного кода, бинарный код, перевод из двоичного кода, текст в двоичный код, бинарный переводчик, бинарный код переводчик, перевод двоичного кода в текст, расшифровать код из цифр 0 и 1, дешифратор бинарного кода, бинарный декодер, двоичный код по фото, зашифровать в двоичный код, расшифровка нулей и единиц, перевод с двоичного кода">
-    <link rel="canonical" href="https://raskodiruy.ru/binary">
-    <meta property="og:title" content="Двоичный код в текст — Расшифровка двоичного кода онлайн">
-    <meta property="og:description" content="Расшифровка двоичного кода в текст онлайн. Бинарный переводчик — переведите код из 0 и 1 в текст и обратно. Бесплатно, мгновенно.">
+    <title>Base64 кодирование и декодирование онлайн — Base64 encode/decode</title>
+    <meta name="description" content="Base64 кодирование и декодирование онлайн — бесплатный инструмент для расшифровки и кодирования Base64. Base64 encode и decode мгновенно, без регистрации. Поддержка UTF-8, кириллицы и эмодзи.">
+    <meta name="keywords" content="base64 расшифровка, base64 декодирование, base64 encode, base64 decode, кодирование base64 онлайн, base64 декодер, base64 кодировщик, base64 в текст, текст в base64, расшифровать base64">
+    <link rel="canonical" href="https://raskodiruy.ru/base64">
+    <meta property="og:title" content="Base64 кодирование и декодирование онлайн — Base64 encode/decode">
+    <meta property="og:description" content="Base64 encode и decode онлайн. Кодирование и декодирование Base64 мгновенно, бесплатно. Поддержка UTF-8.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <!-- Yandex.RTB -->
@@ -33,9 +33,9 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Двоичный код переводчик",
-        "description": "Бесплатный онлайн переводчик двоичного (бинарного) кода в текст и обратно",
-        "url": "https://raskodiruy.ru/binary",
+        "name": "Base64 кодирование и декодирование",
+        "description": "Бесплатный онлайн инструмент для кодирования и декодирования Base64 с поддержкой UTF-8",
+        "url": "https://raskodiruy.ru/base64",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -441,10 +441,10 @@
 
     <nav>
         <a href="/">QR Сканер</a>
-        <a href="/binary" class="active">Двоичный код</a>
+        <a href="/binary">Двоичный код</a>
         <a href="/md5">MD5</a>
         <a href="/ascii">ASCII</a>
-        <a href="/base64">Base64</a>
+        <a href="/base64" class="active">Base64</a>
         <a href="/hex">HEX</a>
         <a href="/url">URL</a>
     </nav>
@@ -452,18 +452,18 @@
 
 
     <main class="page-wrapper">
-        <h1>Двоичный код переводчик</h1>
-        <p class="subtitle">Расшифруй бинарный код мгновенно!</p>
+        <h1>Base64 кодирование и декодирование</h1>
+        <p class="subtitle">Encode и decode Base64 мгновенно!</p>
 
         <div class="mode-toggle">
-            <button class="mode-btn active" id="modeBinToText">Двоичный → Текст</button>
-            <button class="mode-btn" id="modeTextToBin">Текст → Двоичный</button>
+            <button class="mode-btn active" id="modeBase64ToText">Base64 → Текст</button>
+            <button class="mode-btn" id="modeTextToBase64">Текст → Base64</button>
         </div>
 
         <div class="converter-box">
             <div>
-                <div class="field-label" id="inputLabel">Двоичный код</div>
-                <textarea id="inputArea" placeholder="01001000 01100101 01101100 01101100 01101111" spellcheck="false"></textarea>
+                <div class="field-label" id="inputLabel">Base64</div>
+                <textarea id="inputArea" placeholder="SGVsbG8gV29ybGQ=" spellcheck="false"></textarea>
             </div>
 
             <div class="arrow-divider">
@@ -484,48 +484,48 @@
 
         <!-- SEO content -->
         <section class="seo-content">
-            <h2>Расшифровка двоичного кода в текст</h2>
-            <p>Двоичный (бинарный) код — это способ представления информации с помощью двух символов: 0 и 1. Компьютеры хранят все данные в двоичном формате. Каждая группа из 8 бит (нулей и единиц) называется байтом и соответствует одному символу. Наш дешифратор двоичного кода позволяет мгновенно перевести двоичный код в текст онлайн.</p>
+            <h2>Что такое Base64?</h2>
+            <p>Base64 — это схема кодирования, которая преобразует двоичные данные в текстовый формат с использованием 64 печатных ASCII-символов. Алфавит Base64 включает латинские буквы (A-Z, a-z), цифры (0-9) и два дополнительных символа: + и /. Символ = используется для дополнения (padding), чтобы длина закодированной строки была кратна 4.</p>
 
             <div class="example-box">
                 <div class="label">Пример</div>
-                01001000 01100101 01101100 01101100 01101111 = <strong>Hello</strong><br>
-                01010000 01110010 01101001 01110110 01100101 01110100 = <strong>Privet</strong><br>
-                11010000 10011111 11010001 10000000 11010000 10111000 11010000 10110010 11010000 10110101 11010001 10000010 = <strong>Привет</strong>
+                Hello World = <strong>SGVsbG8gV29ybGQ=</strong><br>
+                Привет = <strong>0J/RgNC40LLQtdGC</strong><br>
+                Base64 encode = <strong>QmFzZTY0IGVuY29kZQ==</strong>
             </div>
 
-            <p>Бинарный переводчик работает с кодировкой UTF-8, что позволяет расшифровывать не только латинские буквы, но и кириллицу, эмодзи и символы любых языков мира. Расшифровка нулей и единиц происходит полностью в вашем браузере.</p>
+            <h2>Как работает кодирование Base64</h2>
+            <p>При кодировании каждые 3 байта исходных данных (24 бита) разбиваются на 4 группы по 6 бит. Каждая 6-битная группа преобразуется в один символ из алфавита Base64. Если длина исходных данных не кратна 3 байтам, результат дополняется символами =. Поэтому Base64-строка всегда примерно на 33% длиннее исходных данных.</p>
 
-            <h2>Как пользоваться переводчиком двоичного кода</h2>
-            <p>Для перевода двоичного кода в текст: вставьте последовательность из нулей и единиц в верхнее поле. Байты можно разделять пробелами или писать слитно — дешифратор бинарного кода распознает оба варианта. Результат появится мгновенно.</p>
-            <p>Чтобы зашифровать текст в двоичный код: нажмите кнопку «Текст → Двоичный», введите любой текст, и вы получите его двоичное представление. Перевод с двоичного кода и обратно работает бесплатно и без ограничений.</p>
+            <h2>Где используется Base64</h2>
+            <p>Base64 широко применяется в веб-разработке и IT: для встраивания изображений в HTML и CSS (data URI), передачи данных в JSON и XML, кодирования вложений в email (MIME), хранения бинарных данных в текстовых форматах, авторизации HTTP Basic Auth и работы с API. Наш онлайн-инструмент позволяет быстро закодировать или декодировать Base64 прямо в браузере.</p>
 
             <div class="faq-section">
                 <h2>Частые вопросы</h2>
 
                 <details class="faq-item">
-                    <summary>Что такое двоичный код?</summary>
-                    <div class="faq-answer">Двоичный код — это система записи чисел и данных, использующая только два символа: 0 и 1. Это базовый язык компьютеров. Каждый бит может быть 0 или 1, а группа из 8 бит (байт) может представлять число от 0 до 255, что позволяет кодировать буквы, цифры и символы.</div>
+                    <summary>Что такое Base64 кодирование?</summary>
+                    <div class="faq-answer">Base64 — это метод кодирования двоичных данных в текстовый формат. Он использует 64 безопасных ASCII-символа (A-Z, a-z, 0-9, +, /) для представления любых данных. Это не шифрование — Base64 легко декодируется обратно и используется для безопасной передачи данных через текстовые протоколы.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Как перевести двоичный код в текст вручную?</summary>
-                    <div class="faq-answer">Разделите код на группы по 8 символов (байт). Переведите каждый байт в десятичное число: умножьте каждый бит на соответствующую степень двойки (128, 64, 32, 16, 8, 4, 2, 1) и сложите результаты. Найдите символ с этим номером в таблице ASCII. Например: 01001000 = 0+64+0+0+8+0+0+0 = 72 = 'H'.</div>
+                    <summary>Чем Base64 отличается от шифрования?</summary>
+                    <div class="faq-answer">Base64 — это кодирование, а не шифрование. Любой может декодировать Base64-строку без ключа или пароля. Шифрование (например, AES) делает данные нечитаемыми без секретного ключа. Base64 лишь меняет формат представления данных для удобства передачи по текстовым каналам.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Поддерживается ли русский язык?</summary>
-                    <div class="faq-answer">Да! Переводчик работает с кодировкой UTF-8, поэтому поддерживается кириллица и любые другие символы. Обратите внимание, что русские буквы занимают 2 байта в UTF-8, поэтому для одной буквы нужно 16 бит.</div>
+                    <summary>Почему Base64-строка длиннее исходного текста?</summary>
+                    <div class="faq-answer">При кодировании каждые 3 байта превращаются в 4 символа Base64. Это увеличивает размер данных примерно на 33%. Причина в том, что Base64 использует только 6 бит на символ (64 варианта) вместо 8 бит в обычном байте, поэтому для передачи того же объёма информации требуется больше символов.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Что означает «расшифровать код из цифр 0 и 1»?</summary>
-                    <div class="faq-answer">Это то же самое, что перевести двоичный код в текст. Последовательность нулей и единиц (например, 01001000 01101001) — это текст, записанный в двоичной системе. Наш переводчик мгновенно превращает такую последовательность в читаемый текст.</div>
+                    <summary>Поддерживает ли инструмент кириллицу и эмодзи?</summary>
+                    <div class="faq-answer">Да! Наш инструмент корректно работает с UTF-8, поэтому кириллица, эмодзи и символы любых языков мира кодируются и декодируются без ошибок. Перед кодированием текст преобразуется в UTF-8, а при декодировании — обратно в Unicode.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Можно ли расшифровать код без пробелов?</summary>
-                    <div class="faq-answer">Да, переводчик автоматически разбивает сплошную строку нулей и единиц на байты по 8 символов. Пробелы между байтами необязательны, но с ними код читается удобнее.</div>
+                    <summary>Где чаще всего используется Base64?</summary>
+                    <div class="faq-answer">Base64 применяется повсеместно: встраивание изображений в HTML/CSS через data URI, передача файлов в JSON API, кодирование вложений в электронных письмах (MIME), HTTP Basic авторизация, хранение бинарных данных в базах данных и конфигурационных файлах, а также в JWT-токенах.</div>
                 </details>
             </div>
         </section>
@@ -551,32 +551,28 @@
         const outputArea = document.getElementById('outputArea');
         const inputLabel = document.getElementById('inputLabel');
         const outputLabel = document.getElementById('outputLabel');
-        const modeBinToText = document.getElementById('modeBinToText');
-        const modeTextToBin = document.getElementById('modeTextToBin');
+        const modeBase64ToText = document.getElementById('modeBase64ToText');
+        const modeTextToBase64 = document.getElementById('modeTextToBase64');
         const btnCopy = document.getElementById('btnCopy');
         const btnClear = document.getElementById('btnClear');
         const btnSwap = document.getElementById('btnSwap');
 
-        let mode = 'bin2text'; // or 'text2bin'
+        let mode = 'base64totext'; // or 'texttobase64'
 
-        function binaryToText(bin) {
-            const cleaned = bin.replace(/[^01]/g, '');
-            if (cleaned.length === 0) return '';
-            if (cleaned.length % 8 !== 0) return '[Ошибка: количество бит не кратно 8]';
-
-            const bytes = [];
-            for (let i = 0; i < cleaned.length; i += 8) {
-                bytes.push(parseInt(cleaned.substring(i, i + 8), 2));
+        function base64ToText(base64str) {
+            try {
+                return decodeURIComponent(escape(atob(base64str.trim())));
+            } catch (e) {
+                return '[Ошибка: некорректная Base64-строка]';
             }
-            return new TextDecoder('utf-8').decode(new Uint8Array(bytes));
         }
 
-        function textToBinary(text) {
-            const encoder = new TextEncoder();
-            const bytes = encoder.encode(text);
-            return Array.from(bytes)
-                .map(b => b.toString(2).padStart(8, '0'))
-                .join(' ');
+        function textToBase64(text) {
+            try {
+                return btoa(unescape(encodeURIComponent(text)));
+            } catch (e) {
+                return '[Ошибка кодирования]';
+            }
         }
 
         function convert() {
@@ -588,33 +584,33 @@
             }
 
             outputArea.classList.remove('empty');
-            if (mode === 'bin2text') {
-                outputArea.textContent = binaryToText(input);
+            if (mode === 'base64totext') {
+                outputArea.textContent = base64ToText(input);
             } else {
-                outputArea.textContent = textToBinary(input);
+                outputArea.textContent = textToBase64(input);
             }
         }
 
         inputArea.addEventListener('input', convert);
 
-        modeBinToText.addEventListener('click', () => {
-            mode = 'bin2text';
-            modeBinToText.classList.add('active');
-            modeTextToBin.classList.remove('active');
-            inputLabel.textContent = 'Двоичный код';
+        modeBase64ToText.addEventListener('click', () => {
+            mode = 'base64totext';
+            modeBase64ToText.classList.add('active');
+            modeTextToBase64.classList.remove('active');
+            inputLabel.textContent = 'Base64';
             outputLabel.textContent = 'Текст';
-            inputArea.placeholder = '01001000 01100101 01101100 01101100 01101111';
+            inputArea.placeholder = 'SGVsbG8gV29ybGQ=';
             inputArea.value = '';
             outputArea.textContent = 'Результат появится здесь...';
             outputArea.classList.add('empty');
         });
 
-        modeTextToBin.addEventListener('click', () => {
-            mode = 'text2bin';
-            modeTextToBin.classList.add('active');
-            modeBinToText.classList.remove('active');
+        modeTextToBase64.addEventListener('click', () => {
+            mode = 'texttobase64';
+            modeTextToBase64.classList.add('active');
+            modeBase64ToText.classList.remove('active');
             inputLabel.textContent = 'Текст';
-            outputLabel.textContent = 'Двоичный код';
+            outputLabel.textContent = 'Base64';
             inputArea.placeholder = 'Введите текст...';
             inputArea.value = '';
             outputArea.textContent = 'Результат появится здесь...';
@@ -656,10 +652,10 @@
             const currentOutput = outputArea.textContent;
             if (outputArea.classList.contains('empty')) return;
 
-            if (mode === 'bin2text') {
-                modeTextToBin.click();
+            if (mode === 'base64totext') {
+                modeTextToBase64.click();
             } else {
-                modeBinToText.click();
+                modeBase64ToText.click();
             }
             inputArea.value = currentOutput;
             convert();

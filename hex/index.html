@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Двоичный код в текст онлайн — Расшифровка двоичного кода, бинарный переводчик</title>
-    <meta name="description" content="Двоичный код в текст — бесплатная расшифровка двоичного кода онлайн. Переведите бинарный код из 0 и 1 в текст или зашифруйте текст в двоичный код. Дешифратор бинарного кода мгновенно, без регистрации.">
-    <meta name="keywords" content="двоичный код в текст, расшифровка двоичного кода, двоичный код, расшифровать двоичный код, бинарный код в текст, бинарный код расшифровка, двоичный код переводчик, расшифровка двоичного кода в текст, дешифратор двоичного кода, бинарный код, перевод из двоичного кода, текст в двоичный код, бинарный переводчик, бинарный код переводчик, перевод двоичного кода в текст, расшифровать код из цифр 0 и 1, дешифратор бинарного кода, бинарный декодер, двоичный код по фото, зашифровать в двоичный код, расшифровка нулей и единиц, перевод с двоичного кода">
-    <link rel="canonical" href="https://raskodiruy.ru/binary">
-    <meta property="og:title" content="Двоичный код в текст — Расшифровка двоичного кода онлайн">
-    <meta property="og:description" content="Расшифровка двоичного кода в текст онлайн. Бинарный переводчик — переведите код из 0 и 1 в текст и обратно. Бесплатно, мгновенно.">
+    <title>HEX в текст онлайн — Конвертер шестнадцатеричного кода</title>
+    <meta name="description" content="HEX в текст — бесплатный онлайн конвертер шестнадцатеричного кода. Расшифруйте hex код в текст или переведите текст в HEX. Hex decode мгновенно, без регистрации.">
+    <meta name="keywords" content="hex в текст, шестнадцатеричный код расшифровка, hex decode, hex конвертер онлайн, перевод hex в текст, hex to text, hex декодер, шестнадцатеричный код в текст, hex код расшифровать, конвертер hex онлайн">
+    <link rel="canonical" href="https://raskodiruy.ru/hex">
+    <meta property="og:title" content="HEX в текст — Конвертер шестнадцатеричного кода онлайн">
+    <meta property="og:description" content="Расшифровка HEX кода в текст онлайн. Конвертер шестнадцатеричного кода — переведите hex в текст и обратно. Бесплатно, мгновенно.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <!-- Yandex.RTB -->
@@ -33,9 +33,9 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Двоичный код переводчик",
-        "description": "Бесплатный онлайн переводчик двоичного (бинарного) кода в текст и обратно",
-        "url": "https://raskodiruy.ru/binary",
+        "name": "HEX конвертер",
+        "description": "Бесплатный онлайн конвертер шестнадцатеричного (HEX) кода в текст и обратно",
+        "url": "https://raskodiruy.ru/hex",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -441,29 +441,29 @@
 
     <nav>
         <a href="/">QR Сканер</a>
-        <a href="/binary" class="active">Двоичный код</a>
+        <a href="/binary">Двоичный код</a>
         <a href="/md5">MD5</a>
         <a href="/ascii">ASCII</a>
         <a href="/base64">Base64</a>
-        <a href="/hex">HEX</a>
+        <a href="/hex" class="active">HEX</a>
         <a href="/url">URL</a>
     </nav>
 
 
 
     <main class="page-wrapper">
-        <h1>Двоичный код переводчик</h1>
-        <p class="subtitle">Расшифруй бинарный код мгновенно!</p>
+        <h1>HEX конвертер</h1>
+        <p class="subtitle">Расшифруй шестнадцатеричный код мгновенно!</p>
 
         <div class="mode-toggle">
-            <button class="mode-btn active" id="modeBinToText">Двоичный → Текст</button>
-            <button class="mode-btn" id="modeTextToBin">Текст → Двоичный</button>
+            <button class="mode-btn active" id="modeHexToText">HEX → Текст</button>
+            <button class="mode-btn" id="modeTextToHex">Текст → HEX</button>
         </div>
 
         <div class="converter-box">
             <div>
-                <div class="field-label" id="inputLabel">Двоичный код</div>
-                <textarea id="inputArea" placeholder="01001000 01100101 01101100 01101100 01101111" spellcheck="false"></textarea>
+                <div class="field-label" id="inputLabel">HEX код</div>
+                <textarea id="inputArea" placeholder="48 65 6C 6C 6F" spellcheck="false"></textarea>
             </div>
 
             <div class="arrow-divider">
@@ -484,48 +484,51 @@
 
         <!-- SEO content -->
         <section class="seo-content">
-            <h2>Расшифровка двоичного кода в текст</h2>
-            <p>Двоичный (бинарный) код — это способ представления информации с помощью двух символов: 0 и 1. Компьютеры хранят все данные в двоичном формате. Каждая группа из 8 бит (нулей и единиц) называется байтом и соответствует одному символу. Наш дешифратор двоичного кода позволяет мгновенно перевести двоичный код в текст онлайн.</p>
+            <h2>Расшифровка HEX кода в текст</h2>
+            <p>Шестнадцатеричный код (HEX) — это система счисления с основанием 16, использующая цифры 0-9 и буквы A-F. Каждый байт данных представляется двумя hex-символами. HEX широко применяется в программировании, веб-дизайне (цвета CSS), сетевых протоколах и при анализе данных. Наш конвертер позволяет мгновенно перевести hex в текст онлайн.</p>
 
             <div class="example-box">
                 <div class="label">Пример</div>
-                01001000 01100101 01101100 01101100 01101111 = <strong>Hello</strong><br>
-                01010000 01110010 01101001 01110110 01100101 01110100 = <strong>Privet</strong><br>
-                11010000 10011111 11010001 10000000 11010000 10111000 11010000 10110010 11010000 10110101 11010001 10000010 = <strong>Привет</strong>
+                48 65 6C 6C 6F = <strong>Hello</strong><br>
+                50 72 69 76 65 74 = <strong>Privet</strong><br>
+                D0 9F D1 80 D0 B8 D0 B2 D0 B5 D1 82 = <strong>Привет</strong>
             </div>
 
-            <p>Бинарный переводчик работает с кодировкой UTF-8, что позволяет расшифровывать не только латинские буквы, но и кириллицу, эмодзи и символы любых языков мира. Расшифровка нулей и единиц происходит полностью в вашем браузере.</p>
+            <p>HEX конвертер работает с кодировкой UTF-8, что позволяет расшифровывать не только латинские буквы, но и кириллицу, эмодзи и символы любых языков мира. Каждый символ ASCII занимает 1 байт (2 hex-символа), а кириллические символы в UTF-8 занимают 2 байта (4 hex-символа). Вся обработка происходит в вашем браузере.</p>
 
-            <h2>Как пользоваться переводчиком двоичного кода</h2>
-            <p>Для перевода двоичного кода в текст: вставьте последовательность из нулей и единиц в верхнее поле. Байты можно разделять пробелами или писать слитно — дешифратор бинарного кода распознает оба варианта. Результат появится мгновенно.</p>
-            <p>Чтобы зашифровать текст в двоичный код: нажмите кнопку «Текст → Двоичный», введите любой текст, и вы получите его двоичное представление. Перевод с двоичного кода и обратно работает бесплатно и без ограничений.</p>
+            <h2>Как пользоваться HEX конвертером</h2>
+            <p>Для перевода HEX в текст: вставьте шестнадцатеричный код в верхнее поле. Байты можно разделять пробелами (48 65 6C 6C 6F) или писать слитно (48656C6C6F) — конвертер распознает оба варианта. Результат появится мгновенно.</p>
+            <p>Чтобы перевести текст в HEX: нажмите кнопку «Текст → HEX», введите любой текст, и вы получите его шестнадцатеричное представление. Перевод hex в текст и обратно работает бесплатно и без ограничений.</p>
+
+            <h2>Связь HEX с ASCII и UTF-8</h2>
+            <p>Таблица ASCII присваивает каждому символу числовой код от 0 до 127. В шестнадцатеричной системе это диапазон от 00 до 7F. Например, буква «A» имеет код 41 в HEX (65 в десятичной). UTF-8 расширяет ASCII для поддержки всех символов Unicode: латинские буквы кодируются одним байтом, кириллица — двумя, а эмодзи — четырьмя байтами.</p>
 
             <div class="faq-section">
                 <h2>Частые вопросы</h2>
 
                 <details class="faq-item">
-                    <summary>Что такое двоичный код?</summary>
-                    <div class="faq-answer">Двоичный код — это система записи чисел и данных, использующая только два символа: 0 и 1. Это базовый язык компьютеров. Каждый бит может быть 0 или 1, а группа из 8 бит (байт) может представлять число от 0 до 255, что позволяет кодировать буквы, цифры и символы.</div>
+                    <summary>Что такое HEX (шестнадцатеричный код)?</summary>
+                    <div class="faq-answer">HEX (hexadecimal) — это система счисления с основанием 16. Она использует 16 символов: цифры 0-9 и буквы A-F (где A=10, B=11, C=12, D=13, E=14, F=15). Каждый байт данных записывается двумя hex-символами, что делает запись компактнее, чем в двоичном коде. HEX широко используется в программировании, для записи цветов в CSS (#FF5733), MAC-адресов и при работе с памятью.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Как перевести двоичный код в текст вручную?</summary>
-                    <div class="faq-answer">Разделите код на группы по 8 символов (байт). Переведите каждый байт в десятичное число: умножьте каждый бит на соответствующую степень двойки (128, 64, 32, 16, 8, 4, 2, 1) и сложите результаты. Найдите символ с этим номером в таблице ASCII. Например: 01001000 = 0+64+0+0+8+0+0+0 = 72 = 'H'.</div>
+                    <summary>Как перевести HEX в текст вручную?</summary>
+                    <div class="faq-answer">Разделите hex-строку на пары символов (каждая пара — один байт). Переведите каждую пару в десятичное число: первый символ умножьте на 16, второй прибавьте. Найдите символ с этим номером в таблице ASCII. Например: 48 = 4*16 + 8 = 72 = 'H', 65 = 6*16 + 5 = 101 = 'e'. Для кириллицы и других многобайтовых символов нужно декодировать UTF-8.</div>
                 </details>
 
                 <details class="faq-item">
                     <summary>Поддерживается ли русский язык?</summary>
-                    <div class="faq-answer">Да! Переводчик работает с кодировкой UTF-8, поэтому поддерживается кириллица и любые другие символы. Обратите внимание, что русские буквы занимают 2 байта в UTF-8, поэтому для одной буквы нужно 16 бит.</div>
+                    <div class="faq-answer">Да! Конвертер работает с кодировкой UTF-8, поэтому поддерживается кириллица и любые другие символы. Русские буквы в UTF-8 занимают 2 байта (4 hex-символа). Например, буква «П» кодируется как D0 9F.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Что означает «расшифровать код из цифр 0 и 1»?</summary>
-                    <div class="faq-answer">Это то же самое, что перевести двоичный код в текст. Последовательность нулей и единиц (например, 01001000 01101001) — это текст, записанный в двоичной системе. Наш переводчик мгновенно превращает такую последовательность в читаемый текст.</div>
+                    <summary>Можно ли вводить HEX без пробелов?</summary>
+                    <div class="faq-answer">Да, конвертер автоматически разбивает сплошную hex-строку на пары символов. Вы можете вводить «48656C6C6F» или «48 65 6C 6C 6F» — результат будет одинаковым. Пробелы между байтами необязательны, но с ними код читается удобнее.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Можно ли расшифровать код без пробелов?</summary>
-                    <div class="faq-answer">Да, переводчик автоматически разбивает сплошную строку нулей и единиц на байты по 8 символов. Пробелы между байтами необязательны, но с ними код читается удобнее.</div>
+                    <summary>Чем HEX отличается от двоичного кода?</summary>
+                    <div class="faq-answer">Двоичный код использует 2 символа (0 и 1), а HEX — 16 символов (0-9 и A-F). Один hex-символ заменяет 4 бита двоичного кода, а пара hex-символов — один байт (8 бит). Это делает HEX более компактным: число 255 в двоичном коде — 11111111, а в HEX — просто FF. Оба способа представляют одни и те же данные, но HEX удобнее для чтения человеком.</div>
                 </details>
             </div>
         </section>
@@ -551,31 +554,35 @@
         const outputArea = document.getElementById('outputArea');
         const inputLabel = document.getElementById('inputLabel');
         const outputLabel = document.getElementById('outputLabel');
-        const modeBinToText = document.getElementById('modeBinToText');
-        const modeTextToBin = document.getElementById('modeTextToBin');
+        const modeHexToText = document.getElementById('modeHexToText');
+        const modeTextToHex = document.getElementById('modeTextToHex');
         const btnCopy = document.getElementById('btnCopy');
         const btnClear = document.getElementById('btnClear');
         const btnSwap = document.getElementById('btnSwap');
 
-        let mode = 'bin2text'; // or 'text2bin'
+        let mode = 'hex2text'; // or 'text2hex'
 
-        function binaryToText(bin) {
-            const cleaned = bin.replace(/[^01]/g, '');
+        function hexToText(hex) {
+            const cleaned = hex.replace(/[^0-9A-Fa-f]/g, '');
             if (cleaned.length === 0) return '';
-            if (cleaned.length % 8 !== 0) return '[Ошибка: количество бит не кратно 8]';
+            if (cleaned.length % 2 !== 0) return '[Ошибка: нечётное количество hex-символов]';
 
             const bytes = [];
-            for (let i = 0; i < cleaned.length; i += 8) {
-                bytes.push(parseInt(cleaned.substring(i, i + 8), 2));
+            for (let i = 0; i < cleaned.length; i += 2) {
+                bytes.push(parseInt(cleaned.substring(i, i + 2), 16));
             }
-            return new TextDecoder('utf-8').decode(new Uint8Array(bytes));
+            try {
+                return new TextDecoder('utf-8').decode(new Uint8Array(bytes));
+            } catch (e) {
+                return '[Ошибка: некорректная UTF-8 последовательность]';
+            }
         }
 
-        function textToBinary(text) {
+        function textToHex(text) {
             const encoder = new TextEncoder();
             const bytes = encoder.encode(text);
             return Array.from(bytes)
-                .map(b => b.toString(2).padStart(8, '0'))
+                .map(b => b.toString(16).toUpperCase().padStart(2, '0'))
                 .join(' ');
         }
 
@@ -588,33 +595,33 @@
             }
 
             outputArea.classList.remove('empty');
-            if (mode === 'bin2text') {
-                outputArea.textContent = binaryToText(input);
+            if (mode === 'hex2text') {
+                outputArea.textContent = hexToText(input);
             } else {
-                outputArea.textContent = textToBinary(input);
+                outputArea.textContent = textToHex(input);
             }
         }
 
         inputArea.addEventListener('input', convert);
 
-        modeBinToText.addEventListener('click', () => {
-            mode = 'bin2text';
-            modeBinToText.classList.add('active');
-            modeTextToBin.classList.remove('active');
-            inputLabel.textContent = 'Двоичный код';
+        modeHexToText.addEventListener('click', () => {
+            mode = 'hex2text';
+            modeHexToText.classList.add('active');
+            modeTextToHex.classList.remove('active');
+            inputLabel.textContent = 'HEX код';
             outputLabel.textContent = 'Текст';
-            inputArea.placeholder = '01001000 01100101 01101100 01101100 01101111';
+            inputArea.placeholder = '48 65 6C 6C 6F';
             inputArea.value = '';
             outputArea.textContent = 'Результат появится здесь...';
             outputArea.classList.add('empty');
         });
 
-        modeTextToBin.addEventListener('click', () => {
-            mode = 'text2bin';
-            modeTextToBin.classList.add('active');
-            modeBinToText.classList.remove('active');
+        modeTextToHex.addEventListener('click', () => {
+            mode = 'text2hex';
+            modeTextToHex.classList.add('active');
+            modeHexToText.classList.remove('active');
             inputLabel.textContent = 'Текст';
-            outputLabel.textContent = 'Двоичный код';
+            outputLabel.textContent = 'HEX код';
             inputArea.placeholder = 'Введите текст...';
             inputArea.value = '';
             outputArea.textContent = 'Результат появится здесь...';
@@ -656,10 +663,10 @@
             const currentOutput = outputArea.textContent;
             if (outputArea.classList.contains('empty')) return;
 
-            if (mode === 'bin2text') {
-                modeTextToBin.click();
+            if (mode === 'hex2text') {
+                modeTextToHex.click();
             } else {
-                modeBinToText.click();
+                modeHexToText.click();
             }
             inputArea.value = currentOutput;
             convert();
